@@ -112,6 +112,13 @@ footer{max-width:820px;margin:0 auto;padding:0 16px 40px;font-size:12px;color:va
 .ptitle .pid{color:var(--accent);font-weight:800;margin-right:6px}
 .tag.done{background:var(--green-soft);color:var(--green);font-weight:600;vertical-align:middle}
 .lab{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--muted);margin-bottom:6px}
+.flash{position:relative;min-height:170px;margin-top:10px;cursor:pointer}
+.flash .face{border-radius:12px;padding:16px;min-height:170px;display:flex;flex-direction:column;justify-content:center}
+.flash .front{background:var(--blue-soft);border:1px solid var(--line)}
+.flash .back{display:none;background:var(--amber-soft);border:1px solid var(--line)}
+.flash.flipped .front{display:none}
+.flash.flipped .back{display:flex}
+.ftext{font-size:18px;font-weight:600;line-height:1.5}
 </style>
 </head>
 <body>
@@ -121,6 +128,7 @@ footer{max-width:820px;margin:0 auto;padding:0 16px 40px;font-size:12px;color:va
     <button data-view="home">시작</button>
     <button data-view="book">원리책</button>
     <button data-view="quiz">원리 분류 연습</button>
+    <button data-view="numbers">숫자 붙이기</button>
     <button data-view="career">진로 지도</button>
     <button data-view="mine">내 기록</button>
   </nav>
@@ -134,8 +142,9 @@ footer{max-width:820px;margin:0 auto;padding:0 16px 40px;font-size:12px;color:va
 <script>
 // ---------- 저장 (localStorage) ----------
 const STORE_KEY = "yubin.v2";
-let S = { status:{}, notes:{}, pass:{}, exam:{}, quiz:{ done:0, principleRight:0, answerRight:0, seen:{} } };
+let S = { status:{}, notes:{}, pass:{}, exam:{}, cards:{}, numq:{done:0,right:0}, quiz:{ done:0, principleRight:0, answerRight:0, seen:{} } };
 try { const raw = localStorage.getItem(STORE_KEY); if (raw) S = Object.assign(S, JSON.parse(raw)); } catch(e){}
+S.cards = S.cards||{}; S.numq = S.numq||{done:0,right:0};
 function save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(S)); }catch(e){} }
 function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("show"),1800); }
 
@@ -163,7 +172,7 @@ function route(){
   const h = location.hash.replace(/^#/,"") || "home";
   const [view, arg] = h.split("/");
   document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on", b.dataset.view===view));
-  ({home, book, quiz, career, mine, exam}[view] || home)(arg);
+  ({home, book, quiz, career, mine, exam, numbers, numq}[view] || home)(arg);
   window.scrollTo({top:0});
 }
 document.getElementById("nav").addEventListener("click", e=>{ const b=e.target.closest("button"); if(b) location.hash=b.dataset.view; });
@@ -180,7 +189,8 @@ function home(){
       <div class="step"><b>1. 열려 있는 단원의 원리를 하나 읽는다</b><span class="muted small">"왜 그런가"를 이해할 때까지. 숫자는 나중에.</span></div>
       <div class="step"><b>2. 내 말로 다시 쓴다</b><span class="muted small">각 원리 아래 메모 칸에 남에게 설명하듯 적는다. 막히는 곳이 아직 모르는 곳이다.</span></div>
       <div class="step"><b>3. "설명할 수 있음"에 체크한다</b><span class="muted small">아빠나 친구에게 실제로 설명해 보고 체크하면 가장 좋다.</span></div>
-      <div class="step"><b>4. 단원 통과 시험을 본다</b><span class="muted small">단원의 원리를 모두 체크하면 통과 시험이 열린다. ${Math.round(PASS_RATIO*100)}% 이상 맞히면 다음 단원이 열린다. 원리가 진짜 내 것이 됐는지 확인하는 관문이다.</span></div>
+      <div class="step"><b>4. 단원 통과 시험을 본다</b><span class="muted small">단원의 원리를 모두 체크하면 통과 시험이 열린다. ${Math.round(PASS_RATIO*100)}% 이상 맞히면 다음 단원이 열린다. 원리가 진짜 내 것이 됐는지 확인하는 관문이다. 숫자를 묻는 문제는 없다.</span></div>
+      <div class="step"><b>5. 통과한 단원의 숫자를 뼈대에 붙인다</b><span class="muted small">지정수량·거리·용량 같은 숫자는 원리로 환원되지 않아 결국 외워야 한다. 하지만 순서가 있다. 단원을 통과한 뒤 "숫자 붙이기"에서 카드 앞면(원리)을 보고 뒷면(숫자)을 떠올린다. 모든 단원을 마치면 숫자 총복습이 열린다.</span></div>
     </div>
   </div>
   <div class="card">
@@ -197,7 +207,7 @@ function home(){
     <h2>시험의 구조 (알고 시작하기)</h2>
     <p class="small">필기는 3과목(물질의 물리·화학적 성질 / 화재예방과 소화방법 / 위험물 성상 및 취급) 각 20문항, 과목당 40점 이상·평균 60점 이상이면 합격. 실기는 필답형 20문항(2시간) 60점 이상. 즉 <b>모든 문제를 맞힐 필요가 없다</b> — 원리를 잡은 영역에서 확실히 맞히고, 순수 암기 숫자는 마지막에 붙이면 된다.</p>
     <p class="small muted">화학 용어는 에듀윌 교재와 최근 시험지가 쓰는 새 표기(다이에틸에터·아세트알데하이드·나이트로·아이오딘값·할로젠 등)를 따랐고, 옛 표기(디에틸에테르·니트로·요오드값 등)는 처음 나올 때 괄호로 함께 적었다.</p>
-    <p class="small muted">원리책은 위 3과목을 A(연소)·B(소화)·C·D(화학)·E(소화설비)·F~K(1~6류)·L~N(법규) 14개 단원 ${ALL.length}개 원리로 다시 묶은 것이다. 앞 단원이 뒤 단원의 근거가 되도록 배열했고, 그래서 앞 단원을 마쳐야 다음 단원이 열린다.</p>
+    <p class="small muted">원리책은 위 3과목을 A(연소)·B(소화)·C·D(화학)·E(소화설비)·F~K(1~6류)·L~N(법규) 14개 단원 ${ALL.length}개 원리로 다시 묶은 것이고, 숫자 카드 ${ALLCARDS.length}장이 그 원리들에 매달려 있다. 앞 단원이 뒤 단원의 근거가 되도록 배열했고, 그래서 앞 단원을 마쳐야 다음 단원이 열린다.</p>
   </div>`;
 }
 
@@ -225,9 +235,9 @@ function chapterView(c, openId){
 function examBox(c){ return `<div id="exambox">${examBoxInner(c)}</div>`; }
 function examBoxInner(c){
   const pr = progressOf(c), best = S.exam[c.id];
-  if (isCleared(c)) return `<div class="card okbox"><b>✓ 단원 통과</b> <span class="small muted">최고 ${best.right}/${best.n}. 다음 단원이 열려 있다. 통과 시험은 언제든 다시 볼 수 있다.</span><div class="row"><button class="btn" onclick="location.hash='exam/${c.id}'">다시 보기</button></div></div>`;
+  if (isCleared(c)) return `<div class="card okbox"><b>✓ 단원 통과</b> <span class="small muted">최고 ${best.right}/${best.n}. 다음 단원이 열려 있다. 이제 이 단원의 숫자를 뼈대에 붙일 차례다.</span><div class="row"><a class="btn primary" href="#numbers/${c.id}" style="text-decoration:none">숫자 붙이기 (${cardsOf(c).length}장)</a><button class="btn" onclick="location.hash='exam/${c.id}'">시험 다시 보기</button></div></div>`;
   if (!pr.allDone) return `<div class="card"><b>단원 통과 시험</b><p class="small muted" style="margin:6px 0 0">원리 ${pr.n}개를 모두 "설명할 수 있음"으로 체크하면 열린다. (지금 ${pr.d}/${pr.n})</p></div>`;
-  return `<div class="card okbox"><b>단원 통과 시험이 열렸다</b><p class="small" style="margin:6px 0 0">이 단원의 문제 ${QUIZ.filter(q=>byId(q.principle).chapter===c).length}개를 풀어 ${Math.round(PASS_RATIO*100)}% 이상 맞히면 다음 단원이 열린다.${best?` 지난 최고 ${best.right}/${best.n}.`:""}</p><div class="row"><button class="btn primary" onclick="location.hash='exam/${c.id}'">통과 시험 시작</button></div></div>`;
+  return `<div class="card okbox"><b>단원 통과 시험이 열렸다</b><p class="small" style="margin:6px 0 0">이 단원의 원리형 문제 ${QUIZ.filter(q=>q.type==='principle'&&byId(q.principle).chapter===c).length}개를 풀어 ${Math.round(PASS_RATIO*100)}% 이상 맞히면 다음 단원이 열린다. 숫자를 묻는 문제는 없다 — 원리가 섰는지만 본다.${best?` 지난 최고 ${best.right}/${best.n}.`:""}</p><div class="row"><button class="btn primary" onclick="location.hash='exam/${c.id}'">통과 시험 시작</button></div></div>`;
 }
 function navChapter(c){
   const i = CHAPTERS.indexOf(c); const prev=CHAPTERS[i-1], next=CHAPTERS[i+1];
@@ -271,7 +281,7 @@ let X = null;
 function exam(cid){
   const c = chapOf(cid); if(!c) return book();
   if (!isUnlocked(c) || !progressOf(c).allDone) return chapterView(c);
-  const items = QUIZ.map((q,i)=>i).filter(i=>byId(QUIZ[i].principle).chapter===c).sort(()=>Math.random()-0.5);
+  const items = QUIZ.map((q,i)=>i).filter(i=>QUIZ[i].type==='principle' && byId(QUIZ[i].principle).chapter===c).sort(()=>Math.random()-0.5);
   X = { c, items, k:0, right:0, picked:null };
   renderX();
 }
@@ -300,17 +310,17 @@ function nextX(){ X.k++; X.picked=null; renderX(); }
 let Q = null;
 function quiz(){
   const open = CHAPTERS.filter(isUnlocked);
-  const pool = QUIZ.filter(q=>open.includes(byId(q.principle).chapter));
-  const seen = Object.keys(S.quiz.seen).filter(i=>open.includes(byId(QUIZ[i].principle).chapter)).length;
+  const pool = QUIZ.filter(q=>q.type==='principle' && open.includes(byId(q.principle).chapter));
+  const seen = Object.keys(S.quiz.seen).filter(i=>QUIZ[i].type==='principle' && open.includes(byId(QUIZ[i].principle).chapter)).length;
   main.innerHTML = `<div class="card"><h2>원리 분류 연습</h2>
     <p class="small">기출 유형 문제를 보고 <b>먼저 "어느 단원의 원리에서 나온 문제인가"</b>를 고른다. 그 다음 실제 정답을 고른다. 문제를 맞히는 것보다 <b>출처 원리를 알아보는 것</b>이 목적이다 — 그게 되면 문제는 저절로 풀린다.</p>
-    <p class="small muted">지금 열린 단원(${open.map(c=>c.id).join("·")})의 문제 ${pool.length}개에서 낸다. 단원이 열릴수록 범위가 넓어진다.</p>
+    <p class="small muted">지금 열린 단원(${open.map(c=>c.id).join("·")})의 원리형 문제 ${pool.length}개에서 낸다. 단원이 열릴수록 범위가 넓어진다. 숫자형 문제는 '숫자 붙이기'에서 푼다.</p>
     <div class="stat"><div><b>${S.quiz.done}</b><span>푼 횟수</span></div><div><b>${S.quiz.done?Math.round(S.quiz.principleRight/S.quiz.done*100):0}%</b><span>원리 분류 정답률</span></div><div><b>${S.quiz.done?Math.round(S.quiz.answerRight/S.quiz.done*100):0}%</b><span>문제 정답률</span></div><div><b>${seen}/${pool.length}</b><span>본 문제</span></div></div>
     <div class="row"><button class="btn primary" onclick="nextQ()">문제 시작</button></div></div><div id="qbox"></div>`;
 }
 function nextQ(){
   const open = CHAPTERS.filter(isUnlocked);
-  const all = QUIZ.map((q,i)=>i).filter(i=>open.includes(byId(QUIZ[i].principle).chapter));
+  const all = QUIZ.map((q,i)=>i).filter(i=>QUIZ[i].type==='principle' && open.includes(byId(QUIZ[i].principle).chapter));
   const unseen = all.filter(i=>!S.quiz.seen[i]);
   const pool = unseen.length? unseen : all;
   const i = pool[Math.floor(Math.random()*pool.length)];
@@ -338,6 +348,63 @@ function renderQ(){
 function pickP(cid){ Q.pRight = (byId(Q.item.principle).chapter.id===cid); Q.stage=2; renderQ(); }
 function pickA(k){ Q.picked=k; Q.aRight = (k===Q.item.answer); Q.stage=3;
   S.quiz.done++; if(Q.pRight) S.quiz.principleRight++; if(Q.aRight) S.quiz.answerRight++; S.quiz.seen[Q.i]=1; save(); renderQ(); }
+
+// ---------- 숫자 붙이기 ----------
+const ALLCARDS = []; ALL.forEach(p=>(p.cards||[]).forEach((cd,i)=>{ ALLCARDS.push({id:p.id+"#"+i, f:cd.f, b:cd.b, p, c:p.chapter}); }));
+function cardsOf(c){ return ALLCARDS.filter(x=>x.c===c); }
+function cardStat(cards){ const ok=cards.filter(x=>(S.cards[x.id]||{}).last==="ok").length, ng=cards.filter(x=>(S.cards[x.id]||{}).last==="ng").length; return {n:cards.length, ok, ng, new:cards.length-ok-ng}; }
+function weightOf(card){ const st=S.cards[card.id]; if(!st) return 2; return st.last==="ng"?3:1; }
+function pickWeighted(cards, k){ const pool=cards.map(c=>({c,w:weightOf(c)})); const out=[]; while(out.length<k && pool.length){ const tot=pool.reduce((a,x)=>a+x.w,0); let r=Math.random()*tot, i=0; for(;i<pool.length;i++){ r-=pool[i].w; if(r<=0) break; } out.push(pool.splice(Math.min(i,pool.length-1),1)[0].c); } return out; }
+function numbers(arg){
+  const cleared = CHAPTERS.filter(isCleared), allDone = cleared.length===CHAPTERS.length;
+  if (arg==="mix" || arg==="all"){ const cards = arg==="all"? ALLCARDS : ALLCARDS.filter(x=>isCleared(x.c)); if(!cards.length) return numbers(); return cardSession(pickWeighted(cards, arg==="all"?30:20), arg==="all"?"숫자 총복습":"통과한 단원 섞어 복습", "#numbers"); }
+  if (arg){ const c=chapOf(arg); if(c && isCleared(c)){ const cards=cardsOf(c); const ng=cards.filter(x=>(S.cards[x.id]||{}).last==="ng"), rest=cards.filter(x=>(S.cards[x.id]||{}).last!=="ng"); return cardSession(ng.concat(rest), `${c.id} 단원 숫자 붙이기`, `#book/${c.id}`, c); } }
+  const tot = cardStat(ALLCARDS), cl = cardStat(ALLCARDS.filter(x=>isCleared(x.c)));
+  main.innerHTML = `<div class="card"><h2>숫자 붙이기</h2>
+    <p class="small">원리로 환원되지 않는 숫자(지정수량·거리·용량·기한)는 결국 외워야 한다. 하지만 <b>뼈대를 세운 뒤에</b> 붙인다. 카드 앞면은 원리 한 줄, 뒷면은 숫자다. 앞면을 보고 숫자를 떠올린 뒤 뒤집어 확인한다. 통과한 단원부터 열린다.</p>
+    <div class="stat"><div><b>${cl.ok}/${cl.n}</b><span>열린 카드 중 알았다</span></div><div><b>${cl.ng}</b><span>아직</span></div><div><b>${tot.n}</b><span>전체 카드</span></div><div><b>${S.numq.done?Math.round(S.numq.right/S.numq.done*100):0}%</b><span>숫자 문제 정답률</span></div></div>
+    <div class="row">${cleared.length?`<a class="btn ${allDone?"":"primary"}" href="#numbers/mix" style="text-decoration:none">통과한 단원 섞어 복습 (20장)</a>`:""}${allDone?`<a class="btn primary" href="#numbers/all" style="text-decoration:none">숫자 총복습 (30장)</a>`:`<span class="small muted" style="align-self:center">숫자 총복습은 14단원을 모두 통과하면 열린다 (${cleared.length}/${CHAPTERS.length})</span>`}${cleared.length?`<a class="btn" href="#numq/mix" style="text-decoration:none">숫자형 문제 풀기</a>`:""}</div>
+  </div>` +
+  CHAPTERS.map(c=>{ const cards=cardsOf(c), st=cardStat(cards), cl=isCleared(c), nq=QUIZ.filter(q=>q.type==="number"&&byId(q.principle).chapter===c).length;
+    return `<button class="chap ${cl?"":"locked"}" onclick="location.hash='${cl?"numbers/"+c.id:"book/"+c.id}'"><span class="id">${cl?c.id:"🔒"}</span><span class="t"><b>${c.id}. ${esc(c.title)}</b><span>${cl?`카드 ${cards.length}장 · 알았다 ${st.ok} · 아직 ${st.ng}${nq?` · 숫자형 문제 ${nq}개`:""}`:"단원을 통과하면 열린다"}</span></span><span class="n">${cl?Math.round(st.ok/st.n*100)+"%":""}</span></button>`; }).join("");
+}
+let K = null;
+function cardSession(cards, title, backHash, c){ K = { cards, k:0, flipped:false, ok:0, title, backHash, c }; renderK(); }
+function renderK(){
+  const {cards,k} = K, n = cards.length;
+  if (k>=n){ const nq = K.c? QUIZ.filter(q=>q.type==="number"&&byId(q.principle).chapter===K.c).length : 0;
+    main.innerHTML = `<div class="card okbox"><h2>${esc(K.title)} — ${K.ok}/${n} 알았다</h2><p class="small">"아직"으로 남긴 카드는 다음에 먼저 나온다. 숫자는 여러 번 짧게 보는 것이 한 번 길게 보는 것보다 낫다.</p>
+      <div class="row"><button class="btn primary" onclick="cardSession(K.cards.filter(x=>(S.cards[x.id]||{}).last!=='ok').concat([]).length?K.cards.filter(x=>(S.cards[x.id]||{}).last!=='ok'):K.cards, K.title, K.backHash, K.c)">아직인 카드만 다시</button>${nq?`<a class="btn" href="#numq/${K.c.id}" style="text-decoration:none">이 단원 숫자형 문제 ${nq}개 풀기</a>`:""}<a class="btn" href="${K.backHash}" style="text-decoration:none">돌아가기</a></div></div>`; return; }
+  const cd = cards[k], st = S.cards[cd.id];
+  main.innerHTML = `<div class="card"><div class="small muted">${esc(K.title)} · ${k+1} / ${n} · <a href="#book/${cd.p.id}">${cd.p.id} ${esc(cd.p.title)}</a>${st?` · 지난번 ${st.last==="ok"?"알았다":"아직"}`:""}</div>
+    <div class="flash ${K.flipped?"flipped":""}" onclick="flipK()">
+      <div class="face front"><div class="lab">원리 (앞면)</div><div class="ftext">${esc(cd.f)}</div><div class="small muted" style="margin-top:10px">숫자를 떠올린 뒤 눌러서 확인</div></div>
+      <div class="face back"><div class="lab">숫자 (뒷면)</div><div class="ftext">${esc(cd.b)}</div></div>
+    </div>
+    ${K.flipped?`<div class="row"><button class="btn green" onclick="markK('ok')">알았다</button><button class="btn" onclick="markK('ng')">아직</button></div>`:`<div class="row"><button class="btn primary" onclick="flipK()">숫자 보기</button></div>`}
+  </div>`;
+}
+function flipK(){ K.flipped=true; renderK(); }
+function markK(r){ const cd=K.cards[K.k]; const st=S.cards[cd.id]||{ok:0,ng:0}; st[r]++; st.last=r; S.cards[cd.id]=st; if(r==="ok") K.ok++; save(); K.k++; K.flipped=false; renderK(); }
+// 숫자형 문제 연습
+let NQ = null;
+function numq(arg){
+  const c = chapOf(arg);
+  const items = QUIZ.map((q,i)=>i).filter(i=>QUIZ[i].type==="number" && isCleared(byId(QUIZ[i].principle).chapter) && (!c || byId(QUIZ[i].principle).chapter===c)).sort(()=>Math.random()-0.5);
+  if(!items.length) return numbers();
+  NQ = { items, k:0, right:0, picked:null, title: c?`${c.id} 단원 숫자형 문제`:"숫자형 문제 (통과한 단원)", back: c?`#numbers/${c.id}`:"#numbers" };
+  renderNQ();
+}
+function renderNQ(){
+  const {items,k} = NQ, n = items.length;
+  if (k>=n){ main.innerHTML = `<div class="card okbox"><h2>${esc(NQ.title)} — ${NQ.right}/${n}</h2><p class="small">틀린 문제는 그 원리의 카드로 돌아가 숫자를 다시 붙인다.</p><div class="row"><button class="btn primary" onclick="numq('${NQ.back.split('/')[1]||''}')">다시</button><a class="btn" href="${NQ.back}" style="text-decoration:none">돌아가기</a></div></div>`; return; }
+  const it = QUIZ[items[k]], p = byId(it.principle), picked = NQ.picked;
+  main.innerHTML = `<div class="card"><div class="small muted">${esc(NQ.title)} · ${k+1} / ${n} · 맞힘 ${NQ.right}</div><div class="q">${esc(it.q)}</div>
+    <div class="choices">${it.choices.map((ch,i)=>`<button ${picked!==null?"disabled":""} onclick="pickNQ(${i})" class="${picked!==null?(i===it.answer?"right":(picked===i?"wrong":"")):""}">${i+1}. ${esc(ch)}</button>`).join("")}</div>
+    ${picked!==null?`<div class="sec"><div class="lab">뼈대 — <a href="#book/${p.id}">${p.id} ${esc(p.title)}</a></div><div class="why big">${linkify(it.why)}</div></div><div class="row"><button class="btn primary" onclick="NQ.k++;NQ.picked=null;renderNQ()">${k+1<n?"다음":"결과 보기"}</button></div>`:""}
+  </div>`;
+}
+function pickNQ(i){ if(NQ.picked!==null) return; NQ.picked=i; const ok=i===QUIZ[NQ.items[NQ.k]].answer; if(ok) NQ.right++; S.numq.done++; if(ok) S.numq.right++; save(); renderNQ(); }
 
 // ---------- 진로 지도 ----------
 function career(){
@@ -373,7 +440,7 @@ function mine(){
   const pa = progressAll();
   const notes = ALL.filter(p=>S.notes[p.id] && S.notes[p.id].trim());
   main.innerHTML = `<div class="card"><h2>내 기록</h2>
-    <div class="stat"><div><b>${CHAPTERS.filter(isCleared).length}</b><span>통과 단원</span></div><div><b>${pa.d}</b><span>설명 가능</span></div><div><b>${ALL.filter(p=>S.status[p.id]==="read").length}</b><span>읽음</span></div><div><b>${notes.length}</b><span>메모 쓴 원리</span></div></div>
+    <div class="stat"><div><b>${CHAPTERS.filter(isCleared).length}</b><span>통과 단원</span></div><div><b>${pa.d}</b><span>설명 가능</span></div><div><b>${ALL.filter(p=>S.status[p.id]==="read").length}</b><span>읽음</span></div><div><b>${notes.length}</b><span>메모 쓴 원리</span></div><div><b>${Object.values(S.cards).filter(x=>x.last==="ok").length}/${ALLCARDS.length}</b><span>숫자 카드 알았다</span></div></div>
     <p class="small muted">기록은 이 기기의 브라우저에만 저장된다. 다른 기기로 옮기거나 보관하려면 내보내기를 쓴다.</p>
     <div class="row"><button class="btn primary" onclick="exportNotes()">내 원리책 내보내기 (.md)</button><button class="btn" onclick="importNotes()">가져오기</button><button class="btn ghost" onclick="resetAll()">전체 초기화</button></div>
     <input type="file" id="impfile" accept=".json,.md,.txt" style="display:none">
@@ -388,9 +455,9 @@ function exportNotes(){
   const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([md],{type:"text/markdown"})); a.download=`유빈의_원리책_${new Date().toISOString().slice(0,10)}.md`; a.click(); toast("내보냈다");
 }
 function importNotes(){
-  const inp=document.getElementById("impfile"); inp.onchange=()=>{ const f=inp.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ try{ let txt=r.result; const m=txt.match(/<!-- yubin-data (.*?) -->/s); const data=JSON.parse(m?m[1]:txt); if(!data.status||!data.notes) throw 0; S=Object.assign(S,data); S.pass=S.pass||{}; S.exam=S.exam||{}; save(); toast("가져왔다"); mine(); }catch(e){ toast("파일을 읽지 못했다"); } }; r.readAsText(f); }; inp.click();
+  const inp=document.getElementById("impfile"); inp.onchange=()=>{ const f=inp.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ try{ let txt=r.result; const m=txt.match(/<!-- yubin-data (.*?) -->/s); const data=JSON.parse(m?m[1]:txt); if(!data.status||!data.notes) throw 0; S=Object.assign(S,data); S.pass=S.pass||{}; S.exam=S.exam||{}; S.cards=S.cards||{}; S.numq=S.numq||{done:0,right:0}; save(); toast("가져왔다"); mine(); }catch(e){ toast("파일을 읽지 못했다"); } }; r.readAsText(f); }; inp.click();
 }
-function resetAll(){ if(!confirm("모든 진도·메모·통과 기록을 지울까?")) return; S={ status:{}, notes:{}, pass:{}, exam:{}, quiz:{done:0,principleRight:0,answerRight:0,seen:{}} }; save(); mine(); toast("초기화했다"); }
+function resetAll(){ if(!confirm("모든 진도·메모·통과 기록을 지울까?")) return; S={ status:{}, notes:{}, pass:{}, exam:{}, cards:{}, numq:{done:0,right:0}, quiz:{done:0,principleRight:0,answerRight:0,seen:{}} }; save(); mine(); toast("초기화했다"); }
 
 route();
 </script>
