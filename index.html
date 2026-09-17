@@ -119,6 +119,11 @@ footer{max-width:820px;margin:0 auto;padding:0 16px 40px;font-size:12px;color:va
 .flash.flipped .front{display:none}
 .flash.flipped .back{display:flex}
 .ftext{font-size:18px;font-weight:600;line-height:1.5}
+.vid{display:flex;gap:10px;align-items:flex-start;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:8px;background:var(--bg)}
+.vid .vico{flex:0 0 28px;height:28px;border-radius:8px;background:#e53935;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px}
+.vid .vt{flex:1;min-width:0;font-size:14px;line-height:1.45}
+.vid .vt b{display:block;color:var(--blue)}
+.vid .vt span{display:block;color:var(--muted);font-size:13px}
 </style>
 </head>
 <body>
@@ -254,6 +259,7 @@ function principleCard(p, open){
       <div class="sec"><div class="lab">이 원리 하나로 풀리는 것</div><ul class="keys">${p.solves.map(k=>`<li>${linkify(k)}</li>`).join("")}</ul></div>
       <div class="sec"><div class="lab">설명 점검</div><div class="check"><b>Q.</b> ${linkify(p.check)}</div></div>
       <div class="sec"><div class="lab">원리로 환원되지 않아 외워야 할 최소한</div><div class="memo">${linkify(p.memo)}</div></div>
+      ${(p.videos&&p.videos.length)?`<div class="sec"><div class="lab">이 원리를 보여주는 영상</div>${p.videos.map(v=>`<a class="vid" href="${esc(v.url)}" target="_blank" rel="noopener"><span class="vico">▶</span><span class="vt"><b>${esc(v.title)}</b><span>${esc(v.channel)}${v.lang==="en"?' · <i class="tag">영어</i>':""} — ${esc(v.note)}</span></span></a>`).join("")}</div>`:""}
       <div class="sec"><div class="lab">내 말로 쓴 원리</div>
         <textarea id="note-${p.id}" placeholder="남에게 설명하듯 내 문장으로 써 본다. 막히는 지점이 아직 모르는 곳이다.">${esc(S.notes[p.id]||"")}</textarea>
         <div class="row">

@@ -1,5 +1,5 @@
 // 원리책 데이터 — "왜 그런가"를 중심으로 정리한 위험물산업기사 핵심 원리
-// 구조: 단원(chapter) > 원리(principle). 각 원리: id, title, why, keys, solves, check, memo, cards[{f:앞면(원리 단서), b:뒷면(숫자)}]
+// 구조: 단원(chapter) > 원리(principle). 각 원리: id, title, why, keys, solves, check, memo, cards[{f,b}], videos[{url,title,channel,lang,note}]
 window.CHAPTERS = [
  {
   "id": "A",
@@ -27,6 +27,22 @@ window.CHAPTERS = [
      {
       "f": "연소의 3요소 / 4요소",
       "b": "가연물·산소공급원·점화원 / + 연쇄반응"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=YnY1ZeVHryU",
+      "title": "연소의 3요소 / YTN 사이언스",
+      "channel": "YTN 사이언스",
+      "lang": "ko",
+      "note": "가연물·산소·점화원 세 요소를 실험과 함께 설명하는 과학 교양 영상"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=cUdpxUQGH2A",
+      "title": "[소방학개론] 연소의 3요소 vs. 4요소의 차이를 알려주마~",
+      "channel": "윌비스 공무원",
+      "lang": "ko",
+      "note": "3요소에 연쇄반응을 더한 4요소가 무엇이 다른지 소방학개론 강의로 설명"
      }
     ]
    },
@@ -68,6 +84,22 @@ window.CHAPTERS = [
       "f": "알코올류·2석유류 인화점 (메탄올 / 에탄올 / 등유 / 경유)",
       "b": "11 / 13 / 30~60 / 50~70℃"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=3SMt4XLJiWw",
+      "title": "소방설비기사 - 소방원론 12 - 인화점,발화점,연소점 / (정은재원장님강의)",
+      "channel": "세영직업전문학교[안전.설비.소방.전기]",
+      "lang": "ko",
+      "note": "인화점·발화점·연소점 세 개념을 구분해 설명하는 소방원론 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=PPkZDU8SvRs",
+      "title": "위험물기능사(필기)_위험물 가볍게 훑기_인화점, 연소점, 발화점",
+      "channel": "모아 소방TV",
+      "lang": "ko",
+      "note": "위험물기능사 필기 기준으로 인화점·연소점·발화점을 짧게 정리"
+     }
     ]
    },
    {
@@ -103,6 +135,22 @@ window.CHAPTERS = [
       "f": "증기비중 공식",
       "b": "분자량 ÷ 29"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=6rV2DIcBlxg",
+      "title": "연소범위, 연소한계, 폭발범위, 폭발한계(MSDS)",
+      "channel": "에코엣지 - 안전, 보건, 환경 이야기",
+      "lang": "ko",
+      "note": "연소(폭발)범위·상한·하한의 의미를 MSDS 관점에서 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=uZ96igC1vSY",
+      "title": "(위험물기능장 실기) 빈출-위험도 폭발범위,연소범위",
+      "channel": "위험물기능장TV",
+      "lang": "ko",
+      "note": "위험도 H=(상한−하한)/하한 계산과 연소범위 빈출 문제 풀이"
+     }
     ]
    },
    {
@@ -128,6 +176,22 @@ window.CHAPTERS = [
      {
       "f": "자연발화 열의 종류와 대표 물질",
       "b": "산화열 건성유 / 분해열 나이트로셀룰로스 / 흡착열 활성탄 / 중합열 아크릴로니트릴 / 미생물열 퇴비"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=bRoHd44grRA",
+      "title": "2024년 위험물기능사 필기 과년도_건성유의 자연발화",
+      "channel": "모아 안전TV",
+      "lang": "ko",
+      "note": "건성유(산화열 축적)가 자연발화하는 조건을 위험물기능사 기출로 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=3i7BMdVf7i8",
+      "title": "Spontaneous Combustion Experiment.. Successful!",
+      "channel": "helihoot",
+      "lang": "en",
+      "note": "기름 밴 헝겊이 열 축적으로 저절로 발화하는 과정을 실제로 보여주는 실험"
      }
     ]
    },
@@ -155,6 +219,22 @@ window.CHAPTERS = [
      {
       "f": "분진폭발을 하지 않는 것",
       "b": "시멘트·석회석·생석회 (이미 산화된 것)"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=IuzNc0dnpQk",
+      "title": "분진 화재 실험, 불꽃 만나면 폭발 #영상구성 #헬로tv뉴스",
+      "channel": "헬로tv뉴스",
+      "lang": "ko",
+      "note": "가연성 분진이 공기 중에 떠 있을 때 점화되면 폭발하는 분진폭발 실험"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=DJ6hjWds-aI",
+      "title": "정전기 장재해와 방지대책",
+      "channel": "아프로규태",
+      "lang": "ko",
+      "note": "정전기 발생·축적 원리와 접지 등 방지대책을 산업안전 관점에서 설명"
      }
     ]
    }
@@ -187,6 +267,15 @@ window.CHAPTERS = [
       "f": "4대 소화방법 ↔ 제거되는 요소",
       "b": "제거(가연물) · 질식(산소 15% 이하) · 냉각(열) · 억제(연쇄반응)"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=8xSDbZC0Qws",
+      "title": "[무료강의 개암소] 소화론(218P | 질식소화, 제거소화, 냉각소화, 부촉매소화)",
+      "channel": "개념원리 쌤 기법 소방학개론",
+      "lang": "ko",
+      "note": "질식·제거·냉각·부촉매 4대 소화방법을 연소요소 제거로 설명하는 소방학개론 강의"
+     }
     ]
    },
    {
@@ -212,6 +301,22 @@ window.CHAPTERS = [
      {
       "f": "주수 금지 3그룹",
       "b": "금수성(3류)·무기과산화물(1류)·금속분·철분·Mg(2류) / 비수용성 4류 / 전기"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=9Dv1LgpNcdo",
+      "title": "[New Ver.] 소방원론 19강 소화이론, 소화약제1",
+      "channel": "다산에다 이창선",
+      "lang": "ko",
+      "note": "소화이론과 물 소화약제(비열·잠열·냉각 효과)를 다루는 소방원론 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=oDwpZsLB4W4",
+      "title": "전 부치다 아차!…'기름 화재'에 물 뿌리면 더 '활활' / KBS뉴스(News)",
+      "channel": "KBS News",
+      "lang": "ko",
+      "note": "기름 화재에 물을 뿌리면 왜 위험한지 실험으로 보여주는 뉴스 영상"
      }
     ]
    },
@@ -255,6 +360,22 @@ window.CHAPTERS = [
       "f": "분말 적응 화재 (1·2·4종 / 3종)",
       "b": "BC / ABC(메타인산 방진)"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=zbahjwSQXbQ",
+      "title": "[유선배 - 소방원론 - Chapter20] 소화약제-2 (분말, 이산화탄소)",
+      "channel": "세짱말 설비특강",
+      "lang": "ko",
+      "note": "분말·이산화탄소 소화약제의 소화 원리(질식·냉각·억제)를 설명하는 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=BIGsxoTk4H0",
+      "title": "[2025버전] 소방원론 20강 - 소화이론, 소화약제 (2)",
+      "channel": "다산에다 이창선",
+      "lang": "ko",
+      "note": "포·가스계·분말 등 소화약제별 특성과 적응 화재를 정리하는 소방원론 강의"
+     }
     ]
    },
    {
@@ -275,6 +396,22 @@ window.CHAPTERS = [
      {
       "f": "화재 등급 A / B / C / D 색상",
       "b": "백색 / 황색 / 청색 / 무색"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=X2Vn2cEAG6E",
+      "title": "화재 등급에 따라 소화기 종류와 비치하는 장소가 달라진다는 사실! A급 화재 | B급 화재 | C급 화재 | K급 화재 | D급 화재",
+      "channel": "비츠온TV",
+      "lang": "ko",
+      "note": "A·B·C·D·K급 화재 분류와 각 급에 맞는 소화기 종류를 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=dKNzpIvyRVg",
+      "title": "Fire Classes Explained (Class A, B, C, D & K Fires)",
+      "channel": "cintas",
+      "lang": "en",
+      "note": "화재 등급별 연료 종류와 소화 방법 차이를 영어로 설명"
      }
     ]
    }
@@ -312,6 +449,22 @@ window.CHAPTERS = [
       "f": "오비탈 s / p / d / f 수용 전자",
       "b": "2 / 6 / 10 / 14"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=wXp7m0Yu0ko",
+      "title": "scimathTV 통합과학 제10강 원자의 구조와 전자배치 옥텟규칙",
+      "channel": "과탐TV",
+      "lang": "ko",
+      "note": "원자의 구조, 전자껍질별 전자배치, 옥텟규칙을 다루는 통합과학 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=UvdrQfmcDJ8",
+      "title": "[고1_물질의 규칙성과 결합] 4강. 보어의 원자모형│전자배치│전자껍질│원자가 전자│주기&족",
+      "channel": "은혜로운 과학생활",
+      "lang": "ko",
+      "note": "보어 원자모형·전자껍질·원자가전자 개념을 고1 수준으로 설명"
+     }
     ]
    },
    {
@@ -340,6 +493,22 @@ window.CHAPTERS = [
       "f": "알칼리금속 반응성 순서",
       "b": "K > Na > Li"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=Aef7op2NraM",
+      "title": "고1 통합과학 특강 - 010. 현대의 주기율표, 금속 원소와 비금속 원소 (족, 주기, 금속, 준금속, 비금속)",
+      "channel": "과학채널 S.K.Y",
+      "lang": "ko",
+      "note": "주기율표의 족·주기와 금속/비금속 위치에 따른 성질을 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=9xdMqbdlSYo",
+      "title": "[고1_물질의 규칙성과 결합] 5강. 금속│비금속│준금속│알칼리금속│할로젠│특징과 반응성 정리하기",
+      "channel": "은혜로운 과학생활",
+      "lang": "ko",
+      "note": "알칼리금속·할로젠 등 같은 족의 공통 성질과 반응성을 정리"
+     }
     ]
    },
    {
@@ -363,6 +532,22 @@ window.CHAPTERS = [
      {
       "f": "결합 3종과 대표 물질",
       "b": "이온(NaCl) · 공유(H₂O) · 금속(Cu)"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=u7qN2HSKLb4",
+      "title": "화학 결합(이온 결합, 공유 결합, 금속 결합)",
+      "channel": "김소환T",
+      "lang": "ko",
+      "note": "이온·공유·금속결합의 형성 원리를 비교 설명하는 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=3stHz2JIvJ8",
+      "title": "[실전] 화학결합(공유결합, 이온결합, 금속결합) 특징",
+      "channel": "김소환T",
+      "lang": "ko",
+      "note": "결합 종류별 물질의 녹는점·전기전도성 등 성질 차이를 정리"
      }
     ]
    },
@@ -393,6 +578,22 @@ window.CHAPTERS = [
       "f": "분자간 힘 세기 순서",
       "b": "수소결합 > 쌍극자 힘 > 분산력"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=vN4xsaS73Zk",
+      "title": "분자간 작용하는 힘의 종류 - 수소결합 , 쌍극자-쌍극자 인력 , 분산력(반데르발스 힘)",
+      "channel": "김소환T",
+      "lang": "ko",
+      "note": "수소결합·쌍극자 힘·분산력 세 가지 분자간 힘을 구분해 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=RN_Mk-Kd5do",
+      "title": "[분자 사이의 힘] 분산력, 쌍극자-쌍극자 힘, 수소 결합",
+      "channel": "은혜로운 과학생활",
+      "lang": "ko",
+      "note": "분자간 힘의 종류와 끓는점에 미치는 영향을 고교 화학 수준으로 설명"
+     }
     ]
    },
    {
@@ -419,6 +620,22 @@ window.CHAPTERS = [
      {
       "f": "알칸 / 알켄 / 알킨 일반식",
       "b": "CₙH₂ₙ₊₂ / CₙH₂ₙ / CₙH₂ₙ₋₂"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=clx3Sk_EeQ0",
+      "title": "[유기화학] 작용기의 종류",
+      "channel": "담이 아빠",
+      "lang": "ko",
+      "note": "알코올·알데하이드·케톤·카복실산·에스터 등 작용기 종류를 정리"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=iAtr2-4HBg0",
+      "title": "유기기초 3장 1번째 : 작용기",
+      "channel": "Universal Academy 유니버셜 아카데미",
+      "lang": "ko",
+      "note": "유기화합물 기초로서 작용기가 성질을 결정한다는 내용을 설명"
      }
     ]
    }
@@ -455,6 +672,22 @@ window.CHAPTERS = [
       "f": "원자량 (H / C / N / O / Na / S / Cl / K / Ca)",
       "b": "1 / 12 / 14 / 16 / 23 / 32 / 35.5 / 39 / 40"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=oYvEh3xnbMs",
+      "title": "몰(Mol) 쉽게 이해하기! 화학반응식과 단위 계산까지",
+      "channel": "STEM_EDU",
+      "lang": "ko",
+      "note": "몰 개념과 화학반응식 계수비를 이용한 g·mol·L 단위 계산을 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=Tz0wZOEKbqI",
+      "title": "[이찬화쌤의 화학1] 1단원: 몰과 아보가드로 수",
+      "channel": "찬쌤이언스(이찬화과학학원)",
+      "lang": "ko",
+      "note": "몰·아보가드로수·분자량·22.4L 관계를 화학1 강의로 설명"
+     }
     ]
    },
    {
@@ -481,6 +714,22 @@ window.CHAPTERS = [
      {
       "f": "밀도·분자량 공식 (PV = nRT에서)",
       "b": "ρ = PM/RT, M = WRT/PV"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=sjQy5TEUP9c",
+      "title": "열역학에서 가장 기본인 보일-샤를의 법칙!",
+      "channel": "세짱말 설비특강",
+      "lang": "ko",
+      "note": "보일·샤를 법칙과 절대온도 개념을 기초부터 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=H41HQNSuAIY",
+      "title": "[화학2 내신대비] 5편. 기체(5) - 이상 기체 상태 방정식",
+      "channel": "티노화학",
+      "lang": "ko",
+      "note": "PV=nRT 이상기체 상태방정식의 의미와 계산을 설명"
      }
     ]
    },
@@ -511,6 +760,22 @@ window.CHAPTERS = [
       "f": "물의 Kb / Kf",
       "b": "0.52 / 1.86"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=J9qBP5PXtSU",
+      "title": "[농도개념],[농도계산문제] 쉽게 빨리 풀자.[%농도,몰랄농도(m), 몰농도(M), 노르말농도(N) ] ,용해도, 소금물%농도 퍼센트 농도",
+      "channel": "RC-TV. A",
+      "lang": "ko",
+      "note": "퍼센트·몰·몰랄·노르말농도와 용해도 계산 문제를 함께 풀이"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=fs812b8ddJI",
+      "title": "[수질환경기사] 기초화학 특강 13 몰농도, 노말농도, 몰랄농도, 당량 - 고경미 교수님",
+      "channel": "배울학",
+      "lang": "ko",
+      "note": "몰농도·노르말농도·몰랄농도·당량 개념을 기사 시험 수준으로 설명"
+     }
     ]
    },
    {
@@ -533,6 +798,22 @@ window.CHAPTERS = [
       "f": "중화 공식 / 25℃ 물의 이온곱",
       "b": "N₁V₁ = N₂V₂ / [H⁺][OH⁻] = 10⁻¹⁴"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=UZ4X9DldKMQ",
+      "title": "[클립화학] 산과 염기(아레니우스 정의)",
+      "channel": "광창",
+      "lang": "ko",
+      "note": "아레니우스 산·염기 정의(H⁺·OH⁻)를 짧게 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=TeyFWthaLYU",
+      "title": "2022 개정 [오투 통합과학2] 1-2-02 산, 염기와 중화반응",
+      "channel": "머슬과학샘",
+      "lang": "ko",
+      "note": "산·염기 성질, pH, 중화반응을 통합과학 강의로 설명"
+     }
     ]
    },
    {
@@ -554,6 +835,22 @@ window.CHAPTERS = [
      {
       "f": "산화수 규칙 (홑원소 / H / O / 과산화물의 O / 화합물 합)",
       "b": "0 / +1 / −2 / −1 / 0"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=eBgxwmN5hYY",
+      "title": "산화수 변화와 산화 환원 l 산화수 정하는 규칙, 산화제와 환원제",
+      "channel": "과학강의맛집",
+      "lang": "ko",
+      "note": "산화수 규칙과 산화제·환원제 판별을 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=MSl_Ot7gOdc",
+      "title": "[기초화학] #20. 산화제환원제/산화제환원제의 정의/대표적인 산화제와 환원제/산화제로도 환원제로도 쓰이는 물질",
+      "channel": "EJU SCIENCE",
+      "lang": "ko",
+      "note": "산화제·환원제의 정의와 대표 물질(과산화수소 등)을 정리"
      }
     ]
    },
@@ -582,6 +879,22 @@ window.CHAPTERS = [
      {
       "f": "르샤틀리에 이동 방향 (농도↑ / 압력↑ / 온도↑)",
       "b": "소모하는 쪽 / 기체 몰수 적은 쪽 / 흡열 쪽"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=lPjn4wVOlNA",
+      "title": "6강 반응속도와 활성화에너지(Activation energy) 기초화학 - 2024 위험물기능사 필기⋅실기 논스탑패스 통합본",
+      "channel": "위험물자격채널",
+      "lang": "ko",
+      "note": "위험물기능사 기초화학으로 반응속도 영향 인자와 활성화에너지·촉매를 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=cmjbbXkFRTA",
+      "title": "위험물산업기사 - 16.반응속도와화학평형_르 샤틀리에의 원리 [성안당e러닝]",
+      "channel": "성안당e러닝",
+      "lang": "ko",
+      "note": "위험물산업기사 과정에서 화학평형과 르샤틀리에 원리를 설명"
      }
     ]
    },
@@ -615,6 +928,22 @@ window.CHAPTERS = [
      {
       "f": "전지 (−)극 / 전기분해 음극에서 일어나는 반응",
       "b": "산화 / 환원"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=xVYGVoG-lq8",
+      "title": "전기이론 과외 10편. 전지의 이온화와 전기분해의 패러데이 법칙, 볼타전지, 납축전지의 특성을 쉽게 이해해보자!",
+      "channel": "김기사의 쉬운 전기 with 동이",
+      "lang": "ko",
+      "note": "이온화 경향·볼타전지·전기분해·패러데이 법칙을 한 번에 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=SIAjLbLomyg",
+      "title": "금속의 반응성-금속의 이온화 경향-순서 외우기-FHD",
+      "channel": "SCIENCE TIME",
+      "lang": "ko",
+      "note": "금속의 이온화 경향 순서와 반응성의 의미를 설명"
      }
     ]
    }
@@ -653,6 +982,22 @@ window.CHAPTERS = [
       "f": "금수성에 되는 소화설비",
       "b": "탄산수소염류 분말 · 마른모래 · 팽창질석·진주암"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=PaAny0A8srM",
+      "title": "소화설비의 적응성",
+      "channel": "여승훈",
+      "lang": "ko",
+      "note": "위험물 유별·전기설비별로 어떤 소화설비가 적응성이 있는지 표로 설명하는 위험물산업기사 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=-HOLh-bcEBA",
+      "title": "위험물산업기사 필기 | 10일 완성 | 6일차 | 소화난이도등급 및 소화설비의 적응성",
+      "channel": "나합격 클래스",
+      "lang": "ko",
+      "note": "소화설비 적응성 표를 소화난이도등급과 함께 다루는 필기 강의"
+     }
     ]
    },
    {
@@ -685,7 +1030,8 @@ window.CHAPTERS = [
       "f": "소화전 수평거리 (옥내 / 옥외) / 비상전원",
       "b": "25 m / 40 m / 45분"
      }
-    ]
+    ],
+    "videos": []
    },
    {
     "id": "E3",
@@ -717,7 +1063,8 @@ window.CHAPTERS = [
       "f": "포헤드 방사량 / 부상지붕탱크 포방출구",
       "b": "6.5 L/min·m² / 특형"
      }
-    ]
+    ],
+    "videos": []
    },
    {
     "id": "E4",
@@ -749,6 +1096,22 @@ window.CHAPTERS = [
      {
       "f": "분말 가압용 가스 (질소 / CO₂) 양",
       "b": "40 L/kg / 20 g/kg"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=8KFDx1sxR-k",
+      "title": "[소방설비기사 기계실기] (개정사항)이산화탄소소화설비의 전역방출방식",
+      "channel": "에듀파이어",
+      "lang": "ko",
+      "note": "방호구역 체적 기준으로 CO₂ 약제량을 정하는 전역방출방식의 논리를 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=Jhg9a8O5nvg",
+      "title": "5분 필수 암기] 이산화탄소 소화설비 저장용기 기준",
+      "channel": "들리는 소방",
+      "lang": "ko",
+      "note": "저장용기 설치 장소(40℃ 이하·방호구역 외 등) 기준을 짧게 정리"
      }
     ]
    },
@@ -783,6 +1146,22 @@ window.CHAPTERS = [
       "f": "소화기 보행거리 (소형 / 대형) / 전기설비",
       "b": "20 m / 30 m / 100 m²마다 1개"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=63emwc5KzF0",
+      "title": "위험물산업기사 필기이론_소화설비 소요단위와 능력단위",
+      "channel": "모아 안전TV",
+      "lang": "ko",
+      "note": "소요단위·능력단위 산정 방법을 설명하는 위험물산업기사 이론 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=-HOLh-bcEBA",
+      "title": "위험물산업기사 필기 | 10일 완성 | 6일차 | 소화난이도등급 및 소화설비의 적응성",
+      "channel": "나합격 클래스",
+      "lang": "ko",
+      "note": "소화난이도등급 I·II·III 판정 기준을 다루는 강의"
+     }
     ]
    },
    {
@@ -815,7 +1194,8 @@ window.CHAPTERS = [
       "f": "경계구역 면적 / 한 변 / 광전식 분리형",
       "b": "600 m² / 50 m / 100 m"
      }
-    ]
+    ],
+    "videos": []
    }
   ]
  },
@@ -850,6 +1230,22 @@ window.CHAPTERS = [
       "f": "염소산칼륨 분해 반응식",
       "b": "2KClO₃ → 2KCl + 3O₂ (약 400℃)"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=TfcUGVpq1I8",
+      "title": "🧪 제1류 위험물(산화성고체) | 마찰·열분해 실험으로 쉽게 이해하기",
+      "channel": "한국소방안전원",
+      "lang": "ko",
+      "note": "산화성고체가 마찰·가열로 산소를 내며 가연물을 태우는 성질을 실험으로 보여줌"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=A_aJbpZQ61o",
+      "title": "[완전정복 201110] 위험물기능사 [제1류 위험물 - 산화성 고체] / 정명진",
+      "channel": "잡플러스TV",
+      "lang": "ko",
+      "note": "1류의 공통 성질·저장·소화 원칙을 설명하는 위험물기능사 강의"
+     }
     ]
    },
    {
@@ -877,6 +1273,15 @@ window.CHAPTERS = [
      {
       "f": "알칼리금속 과산화물 운반용기 표시",
       "b": "화기·충격주의 · 물기엄금 · 가연물접촉주의"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=zvvtI2LFVfk",
+      "title": "[실기] 과산화칼륨의 반응식을 쓰는 문제입니다.",
+      "channel": "여승훈",
+      "lang": "ko",
+      "note": "무기과산화물(K₂O₂)이 물·CO₂와 반응해 산소를 내는 반응식을 풀이"
      }
     ]
    },
@@ -906,6 +1311,15 @@ window.CHAPTERS = [
       "f": "다이크로뮴산칼륨 색",
       "b": "등적색"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=ghCNCxlhMo0",
+      "title": "염소산칼륨(제1류)의 열분해",
+      "channel": "현성호의 위험물세상",
+      "lang": "ko",
+      "note": "염소산칼륨이 가열되어 산소를 내놓는 열분해를 설명"
+     }
     ]
    },
    {
@@ -934,6 +1348,15 @@ window.CHAPTERS = [
      {
       "f": "아염소산나트륨 + 산 → ?",
       "b": "이산화염소(ClO₂)"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=A_aJbpZQ61o",
+      "title": "[완전정복 201110] 위험물기능사 [제1류 위험물 - 산화성 고체] / 정명진",
+      "channel": "잡플러스TV",
+      "lang": "ko",
+      "note": "질산염류·과염소산염류·아염소산염류 등 1류 품명별 성질을 다루는 강의"
      }
     ]
    }
@@ -974,6 +1397,22 @@ window.CHAPTERS = [
       "f": "인화성고체 정의",
       "b": "1기압에서 인화점 40℃ 미만 고체 (고형알코올)"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=Rw3xjKyEaqg",
+      "title": "제2류 위험물",
+      "channel": "여승훈",
+      "lang": "ko",
+      "note": "2류 가연성고체의 공통 성질과 분류 기준(순도·입자 크기)을 설명하는 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=25odfb4DlO0",
+      "title": "제2류위험물질 성상",
+      "channel": "한국소방안전원",
+      "lang": "ko",
+      "note": "2류의 성상을 공식 기관에서 정리한 교육 영상"
+     }
     ]
    },
    {
@@ -1003,6 +1442,15 @@ window.CHAPTERS = [
       "f": "Al분 + 물",
       "b": "2Al + 6H₂O → 2Al(OH)₃ + 3H₂"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=Uq2fryhX8BE",
+      "title": "[화학실험] 마그네슘의 연소 마그네슘과 드라이 아이스의 반응 Magnesium Combustion dry ice Mg+O2 Mg+CO2",
+      "channel": "오창진",
+      "lang": "ko",
+      "note": "마그네슘이 CO₂(드라이아이스) 속에서도 계속 타는 것을 직접 보여주는 실험"
+     }
     ]
    },
    {
@@ -1030,6 +1478,15 @@ window.CHAPTERS = [
      {
       "f": "적린 발화점 / 황린 발화점 / 황린→적린 온도",
       "b": "약 260℃ / 약 34℃ / 약 250℃"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=pdtTgWdbitg",
+      "title": "44강 적린과 황린의 비교(필기 대표빈출 9) - 2024 위험물기능사 필기·실기 논스탑패스",
+      "channel": "위험물자격채널",
+      "lang": "ko",
+      "note": "적린(2류)과 황린(3류) 동소체의 발화점·안정성 차이를 비교 설명"
      }
     ]
    }
@@ -1073,6 +1530,22 @@ window.CHAPTERS = [
       "f": "3류 소화약제",
       "b": "팽창질석·팽창진주암·마른모래·탄산수소염류 분말"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=14BbdN5XpRA",
+      "title": "제3류 위험물",
+      "channel": "여승훈",
+      "lang": "ko",
+      "note": "3류 금수성 물질이 물과 만나 어떤 기체를 내는지 품명별로 설명하는 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=2rI3kfCm0iM",
+      "title": "물때문에 불이 붙는 물질? 리튬, 나트륨, 칼륨까지 물에 넣어보았다! - 알칼리금속 반응실험",
+      "channel": "MTBS Media",
+      "lang": "ko",
+      "note": "K·Na가 물과 반응해 수소를 내며 발화하는 금수성을 실험으로 보여줌"
+     }
     ]
    },
    {
@@ -1109,6 +1582,22 @@ window.CHAPTERS = [
       "f": "불꽃 반응색 (K / Na)",
       "b": "보라 / 노랑"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=YvJ0eYkB8uU",
+      "title": "2024년 위험물기능사 필기 이론_알킬알루미늄",
+      "channel": "모아 안전TV",
+      "lang": "ko",
+      "note": "알킬알루미늄의 자연발화성·금수성과 희석·불활성기체 봉입 저장을 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=kt9vL8Mk3K4",
+      "title": "2024년 위험물기능사 실기 과년도_칼륨 화학반응식",
+      "channel": "모아 안전TV",
+      "lang": "ko",
+      "note": "칼륨의 물·CO₂ 반응식을 풀며 석유 속 보호액 저장 이유를 설명"
+     }
     ]
    },
    {
@@ -1137,6 +1626,22 @@ window.CHAPTERS = [
       "f": "황린 운반용기 표시",
       "b": "화기엄금 · 공기접촉엄금 (물기엄금 아님)"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=pdtTgWdbitg",
+      "title": "44강 적린과 황린의 비교(필기 대표빈출 9) - 2024 위험물기능사 필기·실기 논스탑패스",
+      "channel": "위험물자격채널",
+      "lang": "ko",
+      "note": "황린의 발화점(약 34℃)·물속 저장·오산화인 생성 등을 적린과 비교"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=P68ePD7tBio",
+      "title": "White Phosphorus Self-ignition in Air",
+      "channel": "Sean Breheny",
+      "lang": "en",
+      "note": "황린이 공기 중에서 스스로 발화하는 자연발화성을 보여주는 실험"
+     }
     ]
    },
    {
@@ -1162,6 +1667,22 @@ window.CHAPTERS = [
      {
       "f": "Al₄C₃ + 물 → ? / CaC₂ + N₂ → ?",
       "b": "메탄(CH₄) / 석회질소(CaCN₂)"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=MumIc-Gmo9A",
+      "title": "[성안당이러닝] 위험물산업기사 - 실기 2020년 1,2회 기출문제_탄화칼슘",
+      "channel": "성안당",
+      "lang": "ko",
+      "note": "탄화칼슘과 물의 반응(아세틸렌 발생) 기출문제 풀이"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=ovcYzWvyKVo",
+      "title": "Calcium Carbide and Water & Combustion of Acetylene",
+      "channel": "Anne Schmidt",
+      "lang": "en",
+      "note": "카바이드에 물을 부어 아세틸렌이 생기고 타는 것을 보여주는 실험"
      }
     ]
    }
@@ -1210,6 +1731,22 @@ window.CHAPTERS = [
       "f": "4류 위험등급 I / II / III",
       "b": "특수인화물 / 1석유류·알코올류 / 나머지"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=mYqNlzJAERg",
+      "title": "위험물기능장 필기 핵심이론_제4류 위험물의 종류",
+      "channel": "모아 안전TV",
+      "lang": "ko",
+      "note": "특수인화물·1~4석유류·알코올류·동식물유류를 인화점 기준으로 분류하는 방법 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=e3LkfqqW42U",
+      "title": "제4류 위험물_1 정리 및 암기 방법",
+      "channel": "위험물 자격증의 모든 것",
+      "lang": "ko",
+      "note": "4류 품명·인화점 구간·지정수량을 정리하는 강의"
+     }
     ]
    },
    {
@@ -1234,6 +1771,22 @@ window.CHAPTERS = [
      {
       "f": "정전기 대책 3가지 / 물보다 무거운 4류 예",
       "b": "접지·습도 70%·유속 제한 / CS₂(1.26)·클로로벤젠·나이트로벤젠"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=3bSUpPYWAmg",
+      "title": "(위험물) 생활속 -제4류위험물 기원(증기비중, 공기량계산)",
+      "channel": "위험물기능장TV",
+      "lang": "ko",
+      "note": "4류 증기비중이 1보다 커서 바닥에 깔리는 성질과 계산을 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=drNbY7ptAbY",
+      "title": "제4류 위험물",
+      "channel": "현성호의 위험물세상",
+      "lang": "ko",
+      "note": "4류 인화성액체의 공통 성질(비중·증기비중·정전기)을 설명하는 강의"
      }
     ]
    },
@@ -1270,6 +1823,15 @@ window.CHAPTERS = [
      {
       "f": "CS₂ 비중 / 발화점 / 연소 생성물",
       "b": "1.26 / 90~100℃ / CO₂ + 2SO₂"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=37SN082n7x4",
+      "title": "제4류 위험물 성상-한국소방안전협회",
+      "channel": "한국소방안전원",
+      "lang": "ko",
+      "note": "특수인화물(디에틸에테르·이황화탄소 등) 성상을 포함한 4류 성상 교육 영상"
      }
     ]
    },
@@ -1309,6 +1871,22 @@ window.CHAPTERS = [
       "f": "수용성 1석유류 대표",
       "b": "아세톤 · 피리딘 · 시안화수소"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=31NxHrCPMuM",
+      "title": "2024년 위험물기능사 필기 이론_메틸알코올과 에틸알코올",
+      "channel": "모아 안전TV",
+      "lang": "ko",
+      "note": "알코올류(메탄올·에탄올)의 성질과 차이를 설명하는 이론 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=e3LkfqqW42U",
+      "title": "제4류 위험물_1 정리 및 암기 방법",
+      "channel": "위험물 자격증의 모든 것",
+      "lang": "ko",
+      "note": "1석유류(휘발유·벤젠·톨루엔·아세톤)와 알코올류 정리"
+     }
     ]
    },
    {
@@ -1341,6 +1919,15 @@ window.CHAPTERS = [
       "f": "3석유류 수용성 2개",
       "b": "글리세린 · 에틸렌글리콜"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=yEzJJEspm4A",
+      "title": "제4류 위험물_2 정리 및 암기 방법",
+      "channel": "위험물 자격증의 모든 것",
+      "lang": "ko",
+      "note": "2·3·4석유류(등유·경유·중유·글리세린 등) 품명별 정리 강의"
+     }
     ]
    },
    {
@@ -1370,6 +1957,22 @@ window.CHAPTERS = [
      {
       "f": "불건성유 대표",
       "b": "올리브유·피마자유·야자유·동백유·땅콩유"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=bRoHd44grRA",
+      "title": "2024년 위험물기능사 필기 과년도_건성유의 자연발화",
+      "channel": "모아 안전TV",
+      "lang": "ko",
+      "note": "건성유(요오드값 130 이상)가 산화열로 자연발화하는 원리를 기출로 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=KmrZosUespU",
+      "title": "소방설비기사 - 소방원론 53 - 제4류 위험물,동식물유류 / (정은재원장님강의)",
+      "channel": "세영직업전문학교[안전.설비.소방.전기]",
+      "lang": "ko",
+      "note": "동식물유류의 건성·반건성·불건성유 구분과 요오드값을 설명"
      }
     ]
    }
@@ -1408,6 +2011,22 @@ window.CHAPTERS = [
       "f": "5류 소화 / 운반용기 표시",
       "b": "다량 주수 냉각 / 화기엄금·충격주의"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=dRu_Yxg7zy4",
+      "title": "[완전정복 201117] 위험물기능사 [제5류 위험물 – 자기반응성 물질] / 정명진",
+      "channel": "잡플러스TV",
+      "lang": "ko",
+      "note": "자기반응성(분자 내 산소)과 냉각소화(다량 주수) 원칙을 정면으로 다루는 기능사 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=4glc07rWyVI",
+      "title": "《기초화학 및 위험물의 종류》 무료특강(11) - 제5류 위험물의 성질",
+      "channel": "성안당",
+      "lang": "ko",
+      "note": "5류의 공통 성질·저장·소화 방법을 설명하는 성안당 무료특강"
+     }
     ]
    },
    {
@@ -1434,6 +2053,15 @@ window.CHAPTERS = [
      {
       "f": "나이트로셀룰로스 저장 / 분해·발화 온도",
       "b": "물·알코올 습윤 / 130℃·180℃"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=V8_ID44Uo0Q",
+      "title": "[NEW] 제5류 위험물 정리 및 암기 방법",
+      "channel": "위험물 자격증의 모든 것",
+      "lang": "ko",
+      "note": "5류 품명별(질산에스터류 나이트로글리세린·나이트로셀룰로스 등) 성질 정리 강의"
      }
     ]
    },
@@ -1462,6 +2090,15 @@ window.CHAPTERS = [
      {
       "f": "과산화벤조일 / MEKPO 희석제",
       "b": "수분·희석제 / 프탈산다이메틸"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=h7idCVyOKPU",
+      "title": "위험물기능사(필기)_위험물 가볍게 훑기_유기과산화물",
+      "channel": "모아 소방TV",
+      "lang": "ko",
+      "note": "유기과산화물(과산화벤조일 등)의 성질을 단독으로 짧게 설명하는 기능사 강의"
      }
     ]
    }
@@ -1498,6 +2135,22 @@ window.CHAPTERS = [
       "f": "6류 해당 기준 (과산화수소 / 질산)",
       "b": "36 wt% 이상 / 비중 1.49 이상"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=3gpTeWMZumg",
+      "title": "제6류 위험물",
+      "channel": "현성호의 위험물세상",
+      "lang": "ko",
+      "note": "6류 산화성 액체의 공통 성질·지정수량·저장 및 소화 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=zk8gkZYcEH4",
+      "title": "[NEW] 제6류 위험물 정리 및 암기 방법",
+      "channel": "위험물 자격증의 모든 것",
+      "lang": "ko",
+      "note": "6류 공통 성질과 품명(과산화수소·질산·과염소산) 암기 정리"
+     }
     ]
    },
    {
@@ -1524,6 +2177,15 @@ window.CHAPTERS = [
      {
       "f": "과산화수소 분해 반응식",
       "b": "2H₂O₂ → 2H₂O + O₂ (촉매 MnO₂)"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=zk8gkZYcEH4",
+      "title": "[NEW] 제6류 위험물 정리 및 암기 방법",
+      "channel": "위험물 자격증의 모든 것",
+      "lang": "ko",
+      "note": "과산화수소의 분해·안정제·갈색병 저장 등 6류 품명별 성질을 포함"
      }
     ]
    },
@@ -1557,6 +2219,22 @@ window.CHAPTERS = [
       "f": "과염소산 비중 / 할로젠간화합물 예",
       "b": "1.76 / BrF₃·BrF₅·IF₅"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=3gpTeWMZumg",
+      "title": "제6류 위험물",
+      "channel": "현성호의 위험물세상",
+      "lang": "ko",
+      "note": "질산(갈색병·부동태)·과염소산의 성질을 6류 각론에서 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=R7-8fNFC5vc",
+      "title": "제6류 위험물과 제1류 위험물",
+      "channel": "여승훈",
+      "lang": "ko",
+      "note": "6류(질산·과염소산)와 1류를 산화제 관점에서 함께 정리한 강의"
+     }
     ]
    }
   ]
@@ -1589,6 +2267,15 @@ window.CHAPTERS = [
       "f": "배수 공식 / 임시저장",
       "b": "Σ(저장량 ÷ 지정수량) / 소방서장 승인 90일"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=qM_J3l6v9Ec",
+      "title": "[위험물 유별 위험등급, 지정수량] 필수암기사항-3 반복듣기",
+      "channel": "듣는 공부방",
+      "lang": "ko",
+      "note": "유별 지정수량과 위험등급을 반복 암기용으로 정리 — 배수 계산의 기초"
+     }
     ]
    },
    {
@@ -1615,6 +2302,22 @@ window.CHAPTERS = [
       "f": "능력단위 (마른모래 50 L / 팽창질석 160 L / 물통 8 L / 수조 80 L / 190 L)",
       "b": "0.5 / 1.0 / 0.3 / 1.5 / 2.5"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=63emwc5KzF0",
+      "title": "위험물산업기사 필기이론_소화설비 소요단위와 능력단위",
+      "channel": "모아 안전TV",
+      "lang": "ko",
+      "note": "소요단위(지정수량 10배=1단위, 내화/비내화 면적)와 능력단위를 그대로 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=JwP3kgW6xmI",
+      "title": "위험물기능사 필기 소화 문제 모음 | 소요단위",
+      "channel": "나합격 클래스",
+      "lang": "ko",
+      "note": "소요단위 계산 기출문제 풀이 모음"
+     }
     ]
    },
    {
@@ -1636,6 +2339,22 @@ window.CHAPTERS = [
      {
       "f": "혼재 가능 조합 / 적용 제외",
       "b": "1-6, 2-4, 2-5, 4-5, 3-4 (일육·이사오·삼사) / 지정수량 1/10 이하"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=2FbMfamTcNI",
+      "title": "2019~20년 [은실쌤의 위험물산업기사]_위험물 운반기준 혼재기준 암기법!",
+      "channel": "연합플러스평생교육원",
+      "lang": "ko",
+      "note": "운반 시 유별 혼재 기준(1-6, 2-4-5, 3-4)과 암기법을 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=5nFCBo5ck5U",
+      "title": "(암기법)혼재가능한 류별이 다른 위험물",
+      "channel": "위험물기능장TV",
+      "lang": "ko",
+      "note": "혼재 가능 조합 표를 그리는 암기법 강의"
      }
     ]
    },
@@ -1670,6 +2389,15 @@ window.CHAPTERS = [
       "f": "표지 크기 / 이동탱크 '위험물' 표지",
       "b": "0.3 × 0.6 m 이상 / 흑색바탕 황색 반사도료"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=o_DCZ6Ky3sA",
+      "title": "위험물기능사 필기 | 10일 완성 | 10일차 | 위험물운반",
+      "channel": "나합격 클래스",
+      "lang": "ko",
+      "note": "운반용기 표시·주의사항을 운반 기준 강의 안에서 다룸 (게시판 색상은 별도)"
+     }
     ]
    },
    {
@@ -1699,6 +2427,22 @@ window.CHAPTERS = [
      {
       "f": "제조소 보유공지 (10배 이하 / 초과)",
       "b": "3 m / 5 m"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=sTSMrU-MIlM",
+      "title": "[위험물] 안전거리, 보유공지",
+      "channel": "아이꾸준기술사",
+      "lang": "ko",
+      "note": "제조소등의 안전거리와 보유공지 개념·수치를 설명"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=qAkAUv8Wv7U",
+      "title": "[위험물] 위험물 제조소의 안전거리 관련 기준 설명",
+      "channel": "아이꾸준기술사",
+      "lang": "ko",
+      "note": "제조소 안전거리(주거 10m·학교 30m·문화재 50m 등) 기준을 집중 설명"
      }
     ]
    }
@@ -1742,6 +2486,22 @@ window.CHAPTERS = [
       "f": "제조소 취급탱크 방유제 (옥내 1기 / 2기↑)",
       "b": "100% / 최대 탱크 100%"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=p1JOsrG_9Qc",
+      "title": "위험물제조소 시설기준",
+      "channel": "현성호의 위험물세상",
+      "lang": "ko",
+      "note": "제조소 건축물(불연재료·내화구조·가벼운 지붕·방화문)과 설비 기준 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=B_gEQUi6uf4",
+      "title": "[완전정복 201120] 위험물기능사 [제조소1] / 정명진",
+      "channel": "잡플러스TV",
+      "lang": "ko",
+      "note": "위험물기능사 제조소 시설기준 강의 1편"
+     }
     ]
    },
    {
@@ -1778,6 +2538,22 @@ window.CHAPTERS = [
      {
       "f": "쌓는 높이 (기계 / 3·4석유류·동식물유 / 그 밖)",
       "b": "6 / 4 / 3 m"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=PBNDGJpsXIM",
+      "title": "옥내저장소 시설기준",
+      "channel": "현성호의 위험물세상",
+      "lang": "ko",
+      "note": "옥내저장소 보유공지·처마높이·바닥면적 기준 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=_ocoLHxT7Eg",
+      "title": "위험물기능장 필기 핵심이론_옥내저장소 보유공지",
+      "channel": "모아 안전TV",
+      "lang": "ko",
+      "note": "옥내저장소 보유공지 표(내화/비내화별)를 집중 설명"
      }
     ]
    },
@@ -1821,6 +2597,22 @@ window.CHAPTERS = [
       "f": "특정옥외탱크 / 준특정옥외탱크 용량",
       "b": "100만 L 이상 / 50만~100만 L"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=ZtYfVxAdmCM",
+      "title": "옥외탱크저장소 시설기준",
+      "channel": "현성호의 위험물세상",
+      "lang": "ko",
+      "note": "옥외탱크저장소 방유제 용량·높이·탱크 수 등 시설기준 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=9AES1Cz_Es0",
+      "title": "각 탱크의 방유제 용량을 구하는 방법을 알아봅니다.",
+      "channel": "여승훈",
+      "lang": "ko",
+      "note": "방유제 용량(최대 탱크의 110% 등) 계산법을 단독으로 설명"
+     }
     ]
    },
    {
@@ -1856,6 +2648,22 @@ window.CHAPTERS = [
      {
       "f": "간이탱크 용량 / 기수 / 통기관",
       "b": "600 L / 3기 / 25 mm·1.5 m"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=g2T6VV9dRRk",
+      "title": "옥내탱크 저장소 시설기준",
+      "channel": "현성호의 위험물세상",
+      "lang": "ko",
+      "note": "옥내탱크저장소 탱크전용실·이격거리·용량 제한 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=bFnsfUqCKxI",
+      "title": "3권 위험물 지하탱크저장소 3강 - 소방시설의이해(2021년)3권, 270-274p 내용 강의",
+      "channel": "소방문화사",
+      "lang": "ko",
+      "note": "지하탱크저장소 탱크전용실·매설 깊이·이격거리 기준 강의"
      }
     ]
    },
@@ -1905,6 +2713,15 @@ window.CHAPTERS = [
       "f": "2명 운전 장거리 기준 (고속도로 / 그 밖)",
       "b": "340 km / 200 km"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=0tMs_Sj9pNc",
+      "title": "이동탱크저장소 시설기준",
+      "channel": "현성호의 위험물세상",
+      "lang": "ko",
+      "note": "이동탱크(탱크로리) 강판 두께·칸막이·방파판·안전장치 기준 강의"
+     }
     ]
    },
    {
@@ -1936,6 +2753,22 @@ window.CHAPTERS = [
      {
       "f": "선반 높이 / 덩어리 황 (1구역 / 전체 / 높이)",
       "b": "6 m / 100 m² / 1,000 m² / 1.5 m"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=RIhvjH1ljS0",
+      "title": "옥외저장소, 옥외탱크 저장소의 시설기준",
+      "channel": "현성호의 위험물세상",
+      "lang": "ko",
+      "note": "옥외저장소에 둘 수 있는 위험물과 보유공지 기준 포함"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=9NOPZfddoTg",
+      "title": "옥외저장소의 보유공지",
+      "channel": "여승훈",
+      "lang": "ko",
+      "note": "옥외저장소 보유공지 표를 단독으로 설명"
      }
     ]
    },
@@ -1979,6 +2812,15 @@ window.CHAPTERS = [
       "f": "셀프 (휘발유 / 경유 / 급유)",
       "b": "100 L·4분 / 200 L·12분 / 100 L·6분"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=3MpPrx99GB0",
+      "title": "(암기법) 주유취급소 (빈출)- 수정본입니다. 이걸로 공부하세요",
+      "channel": "위험물기능장TV",
+      "lang": "ko",
+      "note": "주유취급소 주유공지(15m×6m)·거리·탱크 용량 기준 암기법"
+     }
     ]
    },
    {
@@ -2011,6 +2853,22 @@ window.CHAPTERS = [
      {
       "f": "이송 배관 지하 (건축물 / 산림)",
       "b": "1.5 m / 0.3 m"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=CYq6l6Uj6BY",
+      "title": "[완전정복 201127] 위험물기능사 [위험물 취급소] / 정명진",
+      "channel": "잡플러스TV",
+      "lang": "ko",
+      "note": "판매·이송·일반취급소 등 취급소 시설기준 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=mPg2n2C2sZw",
+      "title": "기능장_이송취급소 시설기준",
+      "channel": "현성호의 위험물세상",
+      "lang": "ko",
+      "note": "이송취급소(배관) 시설기준을 단독으로 설명"
      }
     ]
    }
@@ -2054,6 +2912,15 @@ window.CHAPTERS = [
       "f": "탱크안전성능검사 4종",
       "b": "기초·지반 / 충수·수압 / 용접부 / 암반탱크"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=cUTLb_TQV-s",
+      "title": "[완전정복 201118] 위험물기능사 [위험물 안전관리법1] / 정명진",
+      "channel": "잡플러스TV",
+      "lang": "ko",
+      "note": "설치허가·변경신고·완공검사·임시저장 등 제도 부분을 다루는 안전관리법 강의"
+     }
     ]
    },
    {
@@ -2086,6 +2953,15 @@ window.CHAPTERS = [
      {
       "f": "중복 선임 (동일 구내 저장소 / 보일러 일반취급소)",
       "b": "10개 이하 / 7개 이하"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=cUTLb_TQV-s",
+      "title": "[완전정복 201118] 위험물기능사 [위험물 안전관리법1] / 정명진",
+      "channel": "잡플러스TV",
+      "lang": "ko",
+      "note": "안전관리법 강의 내 위험물안전관리자 선임·신고·대리자 규정 포함"
      }
     ]
    },
@@ -2123,6 +2999,22 @@ window.CHAPTERS = [
       "f": "포수용액 방사차 비율 / 방사량",
       "b": "2/3 이상 / 2,000 L/min"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=7anyRiXJWJE",
+      "title": "(위험물기능장 실기) 빈출 5위-예방규정 대상 제조소등 및 내용 암기팁",
+      "channel": "위험물기능장TV",
+      "lang": "ko",
+      "note": "예방규정 대상(10배 제조소·100배 옥외·150배 옥내·200배 옥외탱크 등)과 내용 암기"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=H05Sl7P3t5E",
+      "title": "(암기법)예방규정 및 정기점검 대상",
+      "channel": "위험물기능장TV",
+      "lang": "ko",
+      "note": "예방규정 대상과 정기점검 대상을 함께 정리한 암기법"
+     }
     ]
    },
    {
@@ -2150,6 +3042,15 @@ window.CHAPTERS = [
      {
       "f": "정기검사 (정밀 / 중간) / 구조안전점검",
       "b": "12년 후 11년마다 / 4년마다 / 12년→11년(연장 13년)"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=H05Sl7P3t5E",
+      "title": "(암기법)예방규정 및 정기점검 대상",
+      "channel": "위험물기능장TV",
+      "lang": "ko",
+      "note": "정기점검 대상(예방규정 대상+지하탱크·이동탱크 등) 암기법"
      }
     ]
    },
@@ -2189,6 +3090,22 @@ window.CHAPTERS = [
       "f": "쌓는 높이 / 운반 표지",
       "b": "3 m / 0.3 × 0.6 m 흑색바탕 황색"
      }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=_3evBq4k_fc",
+      "title": "위험물 운반기준",
+      "channel": "한국소방안전원",
+      "lang": "ko",
+      "note": "운반용기·수납률(95%/98%)·적재·표시 등 운반 기준 강의"
+     },
+     {
+      "url": "https://www.youtube.com/watch?v=FTxh4ehbZfc",
+      "title": "(5강_위험물운반~위험물제조소) 2025 박문각 취밥러 위험물기능사 필기",
+      "channel": "박문각출판 유튜브",
+      "lang": "ko",
+      "note": "기능사 필기 운반 기준(용기·수납·적재·표시) 단원 강의"
+     }
     ]
    },
    {
@@ -2218,6 +3135,15 @@ window.CHAPTERS = [
      {
       "f": "미선임·미제출·미점검 / 신고 미이행 / 사용정지 / 과징금",
       "b": "1,500만↓ 벌금 / 500만↓ 과태료 / 6개월 이내 / 2억↓"
+     }
+    ],
+    "videos": [
+     {
+      "url": "https://www.youtube.com/watch?v=qWvZrRzSaeY",
+      "title": "벌칙, 왜 이렇게 재밌지? ㅋㅋ 꼭 나오는 위험물 안전관리법, 소방기본법 벌칙",
+      "channel": "넥스트스터디",
+      "lang": "ko",
+      "note": "위험물안전관리법 벌칙(징역·벌금·과태료) 조항을 집중 설명"
      }
     ]
    }
