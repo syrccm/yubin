@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1c2a3a">
+<title>유빈의 원리책 — 위험물산업기사</title>
+<meta name="description" content="위험물산업기사를 암기가 아니라 원리로 공부하기 위한 학습 페이지. 원리책 · 기출 원리 분류 연습 · 진로 지도">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --bg:#f4f6f8; --card:#ffffff; --ink:#1b2430; --muted:#5b6672; --line:#e1e6eb;
+  --accent:#c2410c; --accent-soft:#fff1e8; --blue:#1d4ed8; --blue-soft:#e8efff;
+  --green:#15803d; --green-soft:#e6f6ec; --amber:#b45309; --amber-soft:#fff7e0;
+  --radius:14px; --shadow:0 1px 2px rgba(20,30,40,.06),0 4px 14px rgba(20,30,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#111820; --card:#1a2330; --ink:#e8edf2; --muted:#9aa7b4; --line:#2a3644;
+    --accent:#fb923c; --accent-soft:#3a2416; --blue:#93b4ff; --blue-soft:#1d2a45;
+    --green:#4ade80; --green-soft:#16301f; --amber:#fbbf24; --amber-soft:#3a2f10;
+    --shadow:0 1px 2px rgba(0,0,0,.4); }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;line-height:1.6;font-size:16px;word-break:keep-all}
+a{color:var(--blue)}
+button{font:inherit;color:inherit;cursor:pointer}
+header{background:#1c2a3a;color:#fff;padding:18px 16px 14px;position:sticky;top:0;z-index:20;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.hwrap{max-width:820px;margin:0 auto}
+header h1{margin:0;font-size:20px;font-weight:800;letter-spacing:-.01em}
+header h1 small{display:block;font-size:12px;font-weight:500;opacity:.75;margin-top:2px}
+nav{display:flex;gap:6px;margin-top:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:0 0 auto;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:999px;padding:7px 14px;font-size:14px;font-weight:600}
+nav button.on{background:#fff;color:#1c2a3a;border-color:#fff}
+main{max-width:820px;margin:0 auto;padding:16px 16px 80px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin-bottom:12px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+h2{font-size:18px;margin:0 0 6px}
+h3{font-size:16px;margin:0}
+.progress{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:8px}
+.progress i{display:block;height:100%;background:var(--green);width:0;transition:width .4s}
+.chap{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow)}
+.chap .id{flex:0 0 40px;height:40px;border-radius:12px;background:var(--accent-soft);color:var(--accent);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:17px}
+.chap .t{flex:1;min-width:0}
+.chap .t b{display:block;font-size:16px}
+.chap .t span{display:block;font-size:13px;color:var(--muted)}
+.chap .n{font-size:13px;color:var(--muted);white-space:nowrap}
+.back{background:none;border:0;color:var(--blue);padding:0;margin-bottom:10px;font-weight:600}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:12px;overflow:hidden}
+.pcard .head{width:100%;text-align:left;background:none;border:0;padding:14px 16px;display:flex;gap:10px;align-items:flex-start}
+.pcard .head .pid{color:var(--accent);font-weight:800;flex:0 0 auto}
+.pcard .head .pt{flex:1;font-weight:700;font-size:16px}
+.pcard .head .st{flex:0 0 auto;font-size:12px;padding:2px 8px;border-radius:99px;background:var(--line);color:var(--muted)}
+.pcard .head .st.read{background:var(--amber-soft);color:var(--amber)}
+.pcard .head .st.done{background:var(--green-soft);color:var(--green)}
+.pcard .body{display:none;padding:0 16px 16px;border-top:1px solid var(--line)}
+.pcard.open .body{display:block}
+.sec{margin-top:14px}
+.sec .lab{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+.why{font-size:16px;line-height:1.75}
+.why.big{background:var(--accent-soft);border-left:4px solid var(--accent);padding:12px 14px;border-radius:0 10px 10px 0}
+ul.keys{margin:0;padding-left:18px}
+ul.keys li{margin:4px 0;font-size:15px}
+.check{background:var(--blue-soft);border-radius:10px;padding:12px 14px;font-size:15px}
+.check b{color:var(--blue)}
+.memo{background:var(--amber-soft);border-radius:10px;padding:10px 14px;font-size:14px}
+textarea{width:100%;min-height:96px;border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit;font-size:15px;background:var(--bg);color:var(--ink);resize:vertical}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px 14px;font-weight:600;font-size:14px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.green{background:var(--green);border-color:var(--green);color:#fff}
+.btn.ghost{background:transparent}
+.btn.on{outline:2px solid var(--green);outline-offset:1px}
+.tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:99px;background:var(--line);margin-right:4px}
+.q{font-size:17px;font-weight:600;line-height:1.6}
+.choices{display:grid;gap:8px;margin-top:12px}
+.choices button{text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:11px 14px;font-size:15px}
+.choices button.right{border-color:var(--green);background:var(--green-soft)}
+.choices button.wrong{border-color:var(--accent);background:var(--accent-soft)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-top:12px}
+.grid button{border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:10px 8px;font-size:14px;text-align:left;line-height:1.35}
+.grid button b{display:block;color:var(--accent)}
+.grid button.right{border-color:var(--green);background:var(--green-soft)}
+.grid button.wrong{border-color:var(--accent);background:var(--accent-soft)}
+.res{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--blue-soft);font-size:15px}
+.stat{display:flex;gap:12px;flex-wrap:wrap}
+.stat div{flex:1 1 120px;background:var(--bg);border-radius:10px;padding:10px 12px}
+.stat b{display:block;font-size:22px}
+.stat span{font-size:12px;color:var(--muted)}
+.path{position:relative;padding-left:22px}
+.path:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.step{position:relative;margin-bottom:14px}
+.step:before{content:"";position:absolute;left:-19px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.step b{display:block}
+.combo{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
+.combo span{background:var(--accent-soft);color:var(--accent);border-radius:8px;padding:3px 9px;font-size:13px;font-weight:600}
+.combo span.new{background:var(--green-soft);color:var(--green)}
+.note{font-size:13px;color:var(--muted);margin-top:8px}
+footer{max-width:820px;margin:0 auto;padding:0 16px 40px;font-size:12px;color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#1c2a3a;color:#fff;padding:10px 16px;border-radius:99px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .3s;z-index:50}
+.toast.show{opacity:1}
+</style>
+</head>
+<body>
+<header><div class="hwrap">
+  <h1>유빈의 원리책 <small>위험물산업기사 — 외우지 말고, 왜 그런지 하나씩</small></h1>
+  <nav id="nav">
+    <button data-view="home">시작</button>
+    <button data-view="book">원리책</button>
+    <button data-view="quiz">원리 분류 연습</button>
+    <button data-view="career">진로 지도</button>
+    <button data-view="mine">내 기록</button>
+  </nav>
+</div></header>
+<main id="main"></main>
+<footer>이 페이지의 수치와 규정은 학습용 정리입니다. 시험 접수·출제기준·법령 개정 사항은 <a href="https://www.q-net.or.kr" target="_blank" rel="noopener">큐넷(Q-Net)</a>과 사용하는 교재에서 확인하세요.</footer>
+<div class="toast" id="toast"></div>
+
+<script src="data-principles.js"></script>
+<script src="data-quiz.js"></script>
+<script>
+// ---------- 저장 (localStorage) ----------
+const STORE_KEY = "yubin.v1";
+let S = { status:{}, notes:{}, quiz:{ done:0, principleRight:0, answerRight:0, seen:{} } };
+try { const raw = localStorage.getItem(STORE_KEY); if (raw) S = Object.assign(S, JSON.parse(raw)); } catch(e){}
+function save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(S)); }catch(e){} }
+function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("show"),1600); }
+
+const ALL = []; CHAPTERS.forEach(c=>c.principles.forEach(p=>{ p.chapter=c; ALL.push(p); }));
+const byId = id => ALL.find(p=>p.id===id);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function linkify(s){ // A1, G3 같은 원리 id를 링크로
+  return esc(s).replace(/\b([A-J][1-6])\b/g,(m)=> byId(m)?`<a href="#book/${m}">${m}</a>`:m);
+}
+
+// ---------- 라우팅 ----------
+const main = document.getElementById("main");
+function route(){
+  const h = location.hash.replace(/^#/,"") || "home";
+  const [view, arg] = h.split("/");
+  document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on", b.dataset.view===view));
+  ({home, book, quiz, career, mine}[view] || home)(arg);
+  window.scrollTo({top:0});
+}
+document.getElementById("nav").addEventListener("click", e=>{ const b=e.target.closest("button"); if(b) location.hash=b.dataset.view; });
+window.addEventListener("hashchange", route);
+
+// ---------- 진도 ----------
+function progressOf(ch){ const n=ch.principles.length, d=ch.principles.filter(p=>S.status[p.id]==="done").length, r=ch.principles.filter(p=>S.status[p.id]).length; return {n,d,r}; }
+function progressAll(){ const d=ALL.filter(p=>S.status[p.id]==="done").length; return {n:ALL.length, d, pct:Math.round(d/ALL.length*100)}; }
+
+// ---------- 시작 ----------
+function home(){
+  const pa = progressAll();
+  main.innerHTML = `
+  <div class="card">
+    <h2>이 페이지를 쓰는 법</h2>
+    <p>자격증 공부를 "무조건 외우기"로 하면 지겹고, 진도가 안 나가고, 결국 지친다. 이 페이지는 반대로 간다. 시험에 나오는 내용 뒤에 있는 <b>원리</b>를 하나씩 정확히 익혀서, 나중에는 스스로 <b>자기 원리책</b>을 쓸 수 있게 되는 것이 목표다. 시간이 더 걸려도 괜찮다.</p>
+    <div class="path">
+      <div class="step"><b>1. 원리책에서 원리 하나를 읽는다</b><span class="muted small">"왜 그런가"를 이해할 때까지. 숫자는 나중에.</span></div>
+      <div class="step"><b>2. 내 말로 다시 쓴다</b><span class="muted small">각 원리 아래 메모 칸에 남에게 설명하듯 적는다. 막히는 곳이 아직 모르는 곳이다.</span></div>
+      <div class="step"><b>3. "설명할 수 있음"에 체크한다</b><span class="muted small">아빠나 친구에게 실제로 설명해 보고 체크하면 가장 좋다.</span></div>
+      <div class="step"><b>4. 기출로 검증한다</b><span class="muted small">원리 분류 연습에서 "이 문제는 어느 원리에서 나왔나"를 맞혀 본다. 문제는 원리의 목차일 뿐이다.</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>진행 상황</h2>
+    <div class="stat">
+      <div><b>${pa.d} / ${pa.n}</b><span>설명할 수 있는 원리</span></div>
+      <div><b>${pa.pct}%</b><span>원리책 완성도</span></div>
+      <div><b>${S.quiz.done}</b><span>분류 연습 푼 문제</span></div>
+    </div>
+    <div class="progress"><i style="width:${pa.pct}%"></i></div>
+    <div class="row"><a class="btn primary" href="#book" style="text-decoration:none">원리책 열기</a><a class="btn" href="#quiz" style="text-decoration:none">분류 연습</a></div>
+  </div>
+  <div class="card">
+    <h2>시험의 구조 (알고 시작하기)</h2>
+    <p class="small">필기는 3과목(물질의 물리·화학적 성질 / 화재예방과 소화방법 / 위험물 성상 및 취급) 각 20문항, 과목당 40점 이상·평균 60점 이상이면 합격. 실기는 필답형 20문항(2시간) 60점 이상. 즉 <b>모든 문제를 맞힐 필요가 없다</b> — 원리를 잡은 영역에서 확실히 맞히고, 순수 암기 숫자는 마지막에 붙이면 된다.</p>
+    <p class="small muted">이 페이지의 원리책은 위 3과목을 A(연소)·B(소화)·C(화학)·D~I(1~6류)·J(법규의 논리) 10개 단원으로 다시 묶은 것이다. 순서대로 읽으면 앞 단원이 뒤 단원의 근거가 된다.</p>
+  </div>`;
+}
+
+// ---------- 원리책 ----------
+function book(arg){
+  if (arg){ const p = byId(arg); if (p) return chapterView(p.chapter, p.id); const c = CHAPTERS.find(c=>c.id===arg); if (c) return chapterView(c); }
+  const pa = progressAll();
+  main.innerHTML = `<div class="card"><h2>원리책 목차</h2><p class="small muted">단원을 눌러 원리를 하나씩 연다. 앞 단원이 뒤 단원의 근거가 되도록 배열했다.</p><div class="progress"><i style="width:${pa.pct}%"></i></div><div class="small muted" style="margin-top:4px">${pa.d}/${pa.n} 원리 설명 가능</div></div>` +
+  CHAPTERS.map(c=>{ const pr=progressOf(c); return `<button class="chap" onclick="location.hash='book/${c.id}'"><span class="id">${c.id}</span><span class="t"><b>${esc(c.title)}</b><span>${esc(c.subtitle)}</span></span><span class="n">${pr.d}/${pr.n}</span></button>`; }).join("");
+}
+function chapterView(c, openId){
+  main.innerHTML = `<button class="back" onclick="location.hash='book'">← 목차</button>
+  <div class="card"><h2>${c.id}. ${esc(c.title)}</h2><p class="small" style="margin:6px 0 0">${linkify(c.intro)}</p></div>` +
+  c.principles.map(p=>principleCard(p, p.id===openId)).join("") +
+  navChapter(c);
+  if (openId){ const el=document.getElementById("p-"+openId); if(el) setTimeout(()=>el.scrollIntoView({behavior:"smooth",block:"start"}),50); }
+}
+function navChapter(c){
+  const i = CHAPTERS.indexOf(c); const prev=CHAPTERS[i-1], next=CHAPTERS[i+1];
+  return `<div class="row" style="justify-content:space-between">${prev?`<a class="btn" href="#book/${prev.id}" style="text-decoration:none">← ${prev.id}. ${esc(prev.title)}</a>`:"<span></span>"}${next?`<a class="btn" href="#book/${next.id}" style="text-decoration:none">${next.id}. ${esc(next.title)} →</a>`:""}</div>`;
+}
+function statusLabel(id){ const s=S.status[id]; return s==="done"?`<span class="st done">설명 가능</span>`: s==="read"?`<span class="st read">읽음</span>`:`<span class="st">아직</span>`; }
+function principleCard(p, open){
+  const st=S.status[p.id]||"";
+  return `<div class="pcard ${open?"open":""}" id="p-${p.id}">
+    <button class="head" onclick="togglePrinciple('${p.id}')"><span class="pid">${p.id}</span><span class="pt">${esc(p.title)}</span>${statusLabel(p.id)}</button>
+    <div class="body">
+      <div class="sec"><div class="lab">왜 그런가</div><div class="why big">${linkify(p.why)}</div></div>
+      <div class="sec"><div class="lab">핵심 반응식 · 수치</div><ul class="keys">${p.keys.map(k=>`<li>${linkify(k)}</li>`).join("")}</ul></div>
+      <div class="sec"><div class="lab">이 원리 하나로 풀리는 것</div><ul class="keys">${p.solves.map(k=>`<li>${linkify(k)}</li>`).join("")}</ul></div>
+      <div class="sec"><div class="lab">설명 점검</div><div class="check"><b>Q.</b> ${linkify(p.check)}</div></div>
+      <div class="sec"><div class="lab">원리로 환원되지 않아 외워야 할 최소한</div><div class="memo">${linkify(p.memo)}</div></div>
+      <div class="sec"><div class="lab">내 말로 쓴 원리</div>
+        <textarea id="note-${p.id}" placeholder="남에게 설명하듯 내 문장으로 써 본다. 막히는 지점이 아직 모르는 곳이다.">${esc(S.notes[p.id]||"")}</textarea>
+        <div class="row">
+          <button class="btn" onclick="saveNote('${p.id}')">메모 저장</button>
+          <button class="btn ${st==="read"?"on":""}" onclick="setStatus('${p.id}','read')">읽음</button>
+          <button class="btn green ${st==="done"?"on":""}" onclick="setStatus('${p.id}','done')">설명할 수 있음</button>
+          ${st?`<button class="btn ghost" onclick="setStatus('${p.id}','')">초기화</button>`:""}
+        </div>
+      </div>
+    </div></div>`;
+}
+function togglePrinciple(id){ const el=document.getElementById("p-"+id); el.classList.toggle("open"); if(el.classList.contains("open")) history.replaceState(null,"","#book/"+id); }
+function saveNote(id){ S.notes[id]=document.getElementById("note-"+id).value; save(); toast("저장했다"); }
+function setStatus(id, s){ if(s) S.status[id]=s; else delete S.status[id]; const ta=document.getElementById("note-"+id); if(ta) S.notes[id]=ta.value; save(); const p=byId(id); const el=document.getElementById("p-"+id); el.outerHTML=principleCard(p,true); toast(s==="done"?"설명할 수 있음 ✓":s==="read"?"읽음으로 표시":"초기화"); }
+
+// ---------- 원리 분류 연습 ----------
+let Q = null;
+function quiz(){
+  const total = QUIZ.length, seen = Object.keys(S.quiz.seen).length;
+  main.innerHTML = `<div class="card"><h2>원리 분류 연습</h2>
+    <p class="small">기출 유형 문제를 보고 <b>먼저 "어느 단원의 원리에서 나온 문제인가"</b>를 고른다. 그 다음 실제 정답을 고른다. 문제를 맞히는 것보다 <b>출처 원리를 알아보는 것</b>이 목적이다 — 그게 되면 문제는 저절로 풀린다.</p>
+    <div class="stat"><div><b>${S.quiz.done}</b><span>푼 횟수</span></div><div><b>${S.quiz.done?Math.round(S.quiz.principleRight/S.quiz.done*100):0}%</b><span>원리 분류 정답률</span></div><div><b>${S.quiz.done?Math.round(S.quiz.answerRight/S.quiz.done*100):0}%</b><span>문제 정답률</span></div><div><b>${seen}/${total}</b><span>본 문제</span></div></div>
+    <div class="row"><button class="btn primary" onclick="nextQ()">문제 시작</button></div></div><div id="qbox"></div>`;
+}
+function nextQ(){
+  const unseen = QUIZ.map((q,i)=>i).filter(i=>!S.quiz.seen[i]);
+  const pool = unseen.length? unseen : QUIZ.map((q,i)=>i);
+  const i = pool[Math.floor(Math.random()*pool.length)];
+  Q = { i, item: QUIZ[i], stage: 1, pRight:null, aRight:null };
+  renderQ();
+}
+function renderQ(){
+  const it = Q.item, p = byId(it.principle), box=document.getElementById("qbox");
+  let html = `<div class="card"><div class="small muted">문제 ${Q.i+1} / ${QUIZ.length}</div><div class="q">${esc(it.q)}</div>
+    <div class="choices" style="opacity:${Q.stage===1?".55":"1"}">${it.choices.map((c,k)=>`<button ${Q.stage===1?"disabled":""} onclick="pickA(${k})" class="${Q.stage===3?(k===it.answer?"right":(Q.picked===k?"wrong":"")):""}">${k+1}. ${esc(c)}</button>`).join("")}</div>`;
+  if (Q.stage===1){
+    html += `<div class="sec"><div class="lab">1단계 — 이 문제는 어느 단원의 원리에서 나왔나?</div><div class="grid">${CHAPTERS.map(c=>`<button onclick="pickP('${c.id}')"><b>${c.id}</b>${esc(c.title)}</button>`).join("")}</div></div>`;
+  } else {
+    html += `<div class="sec"><div class="lab">1단계 결과</div><div class="res">${Q.pRight?"맞다. ":"아니다. "}이 문제의 출처는 <b>${p.chapter.id}. ${esc(p.chapter.title)}</b> → <a href="#book/${p.id}">${p.id} ${esc(p.title)}</a></div></div>`;
+    if (Q.stage===2) html += `<div class="sec"><div class="lab">2단계 — 이제 정답을 고른다</div></div>`;
+  }
+  if (Q.stage===3){
+    html += `<div class="sec"><div class="lab">원리 해설</div><div class="why big">${linkify(it.why)}</div></div>
+      <div class="row"><a class="btn" href="#book/${p.id}" style="text-decoration:none">원리 ${p.id} 다시 읽기</a><button class="btn primary" onclick="nextQ()">다음 문제</button></div>`;
+  }
+  html += `</div>`;
+  box.innerHTML = html;
+  box.scrollIntoView({behavior:"smooth", block:"start"});
+}
+function pickP(cid){ Q.pRight = (byId(Q.item.principle).chapter.id===cid); Q.stage=2; renderQ(); }
+function pickA(k){ Q.picked=k; Q.aRight = (k===Q.item.answer); Q.stage=3;
+  S.quiz.done++; if(Q.pRight) S.quiz.principleRight++; if(Q.aRight) S.quiz.answerRight++; S.quiz.seen[Q.i]=1; save(); renderQ(); }
+
+// ---------- 진로 지도 ----------
+function career(){
+  main.innerHTML = `
+  <div class="card"><h2>지금 가진 것과 더해질 것</h2>
+    <div class="combo"><span>용접기능사</span><span>배관기능사</span><span>산업안전산업기사</span><span class="new">+ 위험물산업기사</span></div>
+    <p>용접·배관은 "설비를 만들고 잇는 손", 산업안전은 "현장을 안전하게 굴리는 눈", 위험물은 "그 설비 안에 흐르는 물질을 아는 머리"다. 이 네 가지가 한 사람 안에 있으면 <b>화학·정유·가스 플랜트의 설비 시공과 안전 관리</b> 양쪽에서 통하는 사람이 된다. 위험물산업기사는 새 길을 여는 자격이라기보다, 이미 가진 자격들을 하나로 묶어 주는 <b>마지막 조각</b>에 가깝다.</p>
+  </div>
+  <div class="card"><h2>이 조합이 통하는 자리</h2>
+    <div class="path">
+      <div class="step"><b>정유·석유화학·가스 플랜트 설비 (배관·용접 시공 → 설비 관리)</b><span class="small muted">배관·용접 기술로 들어가서, 위험물 지식으로 '무엇이 흐르는 배관인가'를 아는 사람으로 자리 잡는 길. 울산·여수·대산 같은 석유화학단지와 부산·경남의 조선·플랜트 협력사에서 수요가 꾸준하다.</span></div>
+      <div class="step"><b>위험물 취급 사업장의 안전관리자</b><span class="small muted">위험물안전관리법상 제조소등(주유소·저장소·화학공장 등)은 위험물안전관리자를 두어야 한다. 위험물산업기사는 취급 가능한 유별에 제한이 없는 자격으로, 산업안전산업기사와 함께 있으면 '안전 담당'으로서의 폭이 넓어진다.</span></div>
+      <div class="step"><b>소방·안전 설비 분야</b><span class="small muted">화재예방·소화설비 지식은 소방설비 쪽과 겹친다. 이후 소방설비산업기사(기계)로 확장하면 배관 기술과도 자연스럽게 이어진다.</span></div>
+      <div class="step"><b>공공기관·대기업 시설직</b><span class="small muted">시설·안전 직렬 채용에서 기능사·산업기사 다수 보유는 가점 또는 응시 요건이 되는 경우가 많다. 특히 위험물·산업안전 조합을 요구하는 공고가 있다.</span></div>
+    </div>
+    <p class="note">※ 안전관리자 선임 요건과 채용 가점은 법령·기관마다 다르므로, 관심 있는 자리가 생기면 그 공고와 위험물안전관리법 시행령을 직접 확인한다.</p>
+  </div>
+  <div class="card"><h2>그 다음 단계 (순서대로가 아니라 방향으로)</h2>
+    <div class="path">
+      <div class="step"><b>실무 경력 쌓기</b><span class="small muted">산업기사 취득 후 현장 경력은 상위 자격(기사·기능장)의 응시 요건이 된다. 자격을 더 따는 것보다 먼저 현장에서 '어떤 설비, 어떤 물질'을 다루는지 보는 것이 진로를 정하는 데 도움이 된다.</span></div>
+      <div class="step"><b>산업안전기사 · 소방설비산업기사(기계)</b><span class="small muted">안전 쪽으로 무게를 둘 때. 지금 공부하는 화재·소화 원리가 그대로 쓰인다.</span></div>
+      <div class="step"><b>가스기능사 → 가스산업기사</b><span class="small muted">플랜트 설비 쪽으로 무게를 둘 때. 배관·용접·위험물과 가장 궁합이 좋다.</span></div>
+      <div class="step"><b>위험물기능장</b><span class="small muted">위험물 분야의 최상위. 산업기사 취득 후 실무 경력이 필요하다. 원리를 깊이 이해해 두면 여기서 크게 유리하다.</span></div>
+    </div>
+  </div>
+  <div class="card"><h2>왜 '원리'로 공부하는 것이 진로에도 유리한가</h2>
+    <p>시험만 보면 암기로도 붙을 수 있다. 하지만 현장에서 "이 탱크에 물을 뿌리면 안 되는 이유"를 아는 사람과 "안 된다고 외운" 사람은 다른 대우를 받는다. 위험물 원리를 제대로 알면 산업안전·소방·가스 자격의 공부 시간이 절반으로 줄고, 무엇보다 <b>현장에서 판단할 수 있는 사람</b>이 된다. 지금 느린 길이 가장 빠른 길이다.</p>
+  </div>`;
+}
+
+// ---------- 내 기록 ----------
+function mine(){
+  const pa = progressAll();
+  const notes = ALL.filter(p=>S.notes[p.id] && S.notes[p.id].trim());
+  main.innerHTML = `<div class="card"><h2>내 기록</h2>
+    <div class="stat"><div><b>${pa.d}</b><span>설명 가능</span></div><div><b>${ALL.filter(p=>S.status[p.id]==="read").length}</b><span>읽음</span></div><div><b>${notes.length}</b><span>메모 쓴 원리</span></div></div>
+    <p class="small muted">기록은 이 기기의 브라우저에만 저장된다. 다른 기기로 옮기거나 보관하려면 내보내기를 쓴다.</p>
+    <div class="row"><button class="btn primary" onclick="exportNotes()">내 원리책 내보내기 (.md)</button><button class="btn" onclick="importNotes()">가져오기</button><button class="btn ghost" onclick="resetAll()">전체 초기화</button></div>
+    <input type="file" id="impfile" accept=".json,.md,.txt" style="display:none">
+  </div>` +
+  (notes.length? `<div class="card"><h2>내 말로 쓴 원리</h2>${notes.map(p=>`<div class="sec"><div class="lab"><a href="#book/${p.id}">${p.id} ${esc(p.title)}</a></div><div style="white-space:pre-wrap;font-size:15px">${esc(S.notes[p.id])}</div></div>`).join("")}</div>` : `<div class="card muted small">아직 쓴 메모가 없다. 원리책에서 원리 하나를 읽고 내 말로 써 보자.</div>`);
+}
+function exportNotes(){
+  let md = `# 유빈의 원리책 — 위험물산업기사\n\n내보낸 날짜: ${new Date().toLocaleDateString("ko-KR")}\n\n`;
+  CHAPTERS.forEach(c=>{ md += `## ${c.id}. ${c.title}\n\n`; c.principles.forEach(p=>{ const st=S.status[p.id]; md += `### ${p.id} ${p.title} ${st==="done"?"✅ 설명 가능":st==="read"?"👀 읽음":""}\n\n`; if(S.notes[p.id]) md += S.notes[p.id].trim()+"\n\n"; }); });
+  md += `\n<!-- yubin-data ${JSON.stringify(S)} -->\n`;
+  const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([md],{type:"text/markdown"})); a.download=`유빈의_원리책_${new Date().toISOString().slice(0,10)}.md`; a.click(); toast("내보냈다");
+}
+function importNotes(){
+  const inp=document.getElementById("impfile"); inp.onchange=()=>{ const f=inp.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ try{ let txt=r.result; const m=txt.match(/<!-- yubin-data (.*?) -->/s); const data=JSON.parse(m?m[1]:txt); if(!data.status||!data.notes) throw 0; S=Object.assign(S,data); save(); toast("가져왔다"); mine(); }catch(e){ toast("파일을 읽지 못했다"); } }; r.readAsText(f); }; inp.click();
+}
+function resetAll(){ if(!confirm("모든 진도와 메모를 지울까?")) return; S={ status:{}, notes:{}, quiz:{done:0,principleRight:0,answerRight:0,seen:{}} }; save(); mine(); toast("초기화했다"); }
+
+route();
+</script>
+</body>
+</html>
